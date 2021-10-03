@@ -1,0 +1,16 @@
+{
+	"notes": [
+		{
+			"id": 1,
+			"text": "Some task here for Petrovich",
+			"time": "1:00",
+			"finished": false
+		},
+		{
+			"id": 2,
+			"text": "One more task",
+			"time": "1:00",
+			"finished": false
+		}
+	]
+}
