@@ -51,6 +51,7 @@ const App = () => {
 				id: Date.now(),
 				title: todoText,
 				done: false,
+				timeSpent: 0,
 			};
 			setTodosArray([newTodo, ...todosArray]);
 		}

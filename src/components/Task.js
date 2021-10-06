@@ -8,6 +8,8 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
 	const [timerHasStarted, setTimerHasStarted] = useState(false);
+	const [seconds, setSeconds] = useState(0);
+	const [isRunning, setIsRunning] = useState(false);
 
 	if (edit) {
 		return (
@@ -68,9 +70,26 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 			>
 				Start timer
 			</button>
+			<button
+				onClick={() => {
+					setTimerHasStarted(true);
+					setIsRunning(true);
+					setSeconds(0);
+				}}
+			>
+				Start from the beginning
+			</button>
 
 			{timerHasStarted === true ? (
-				<TaskTimer todo={todo} saveTimeIntoTodo={saveTimeIntoTodo} />
+				<TaskTimer
+					seconds={seconds}
+					isRunning={isRunning}
+					todo={todo}
+					saveTimeIntoTodo={saveTimeIntoTodo}
+					setIsRunning={setIsRunning}
+					setSeconds={setSeconds}
+					setTimerHasStarted={setTimerHasStarted}
+				/>
 			) : (
 				<div>Not started</div>
 			)}

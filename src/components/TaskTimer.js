@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 
 import "../style/css/Timer.css";
 
-const TaskTimer = ({ todo, saveTimeIntoTodo }) => {
-	const [seconds, setSeconds] = useState(0);
-	const [isRunning, setIsRunning] = useState(false);
+const TaskTimer = ({
+	seconds,
+	setSeconds,
+	isRunning,
+	todo,
+	saveTimeIntoTodo,
+	setIsRunning,
+	setTimerHasStarted,
+}) => {
+	// const [seconds, setSeconds] = useState(0);
+	// const [isRunning, setIsRunning] = useState(false);
 	const [newTimeTodo, setnewTimeTodo] = useState(todo.timeSpent);
 
 	useEffect(() => {
@@ -37,19 +45,21 @@ const TaskTimer = ({ todo, saveTimeIntoTodo }) => {
 						let totalTime = newTimeTodo + seconds;
 						setnewTimeTodo(totalTime);
 						saveTimeIntoTodo(todo, totalTime);
+						setTimerHasStarted(false);
 					}}
 				>
 					Stop
 				</button>
 			) : (
-				<button
-					onClick={() => {
-						setIsRunning(true);
-						setSeconds(0);
-					}}
-				>
-					Start from the beginning
-				</button>
+				<div></div>
+				// <button
+				// 	onClick={() => {
+				// 		setIsRunning(true);
+				// 		setSeconds(0);
+				// 	}}
+				// >
+				// 	Start from the beginning
+				// </button>
 			)}
 			<button
 				onClick={() => {
