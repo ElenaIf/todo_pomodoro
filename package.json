@@ -20,7 +20,7 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"sass": "node-sass -w scss/ -o dist/css/ --recursive",
-		"json-server": "json-server -p3002 --watch db.json"
+		"json-server": "json-server -p3001 --watch db.json"
 	},
 	"eslintConfig": {
 		"extends": [

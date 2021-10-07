@@ -27,7 +27,8 @@ const Timer2 = () => {
 	let watchSeconds = (seconds - Math.floor(seconds / 60) * 60).toString().padStart(2, "0");
 
 	return (
-		<div className="timer">
+		// <div className="timer">
+		<div>
 			<p>Timer 2</p>
 			<p>
 				{watchMinutes}:{watchSeconds}

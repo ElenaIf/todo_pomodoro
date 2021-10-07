@@ -32,7 +32,7 @@ main {
 }
 
 .main-left {
-  width: 60%;
+  width: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,7 +43,7 @@ main {
 }
 
 .main-right {
-  width: 40%;
+  width: 35%;
 }
 
 footer {

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import "../style/css/Timer.css";
 
-const TaskTimer = ({ todo, saveTimeIntoTodo }) => {
-	const [seconds, setSeconds] = useState(0);
-	const [isRunning, setIsRunning] = useState(false);
+const TaskTimer = ({ todo, saveTimeIntoTodo, isRunning, setIsRunning, seconds, setSeconds }) => {
+	// const [seconds, setSeconds] = useState(0);
+	// const [isRunning, setIsRunning] = useState(false);
 	const [newTimeTodo, setnewTimeTodo] = useState(todo.timeSpent);
 
 	useEffect(() => {
@@ -24,7 +24,7 @@ const TaskTimer = ({ todo, saveTimeIntoTodo }) => {
 	let watchSeconds = (seconds - Math.floor(seconds / 60) * 60).toString().padStart(2, "0");
 
 	return (
-		<div>
+		<div className="full-screen-timer">
 			<p>Timer started for: {todo.title}</p>
 			<p>
 				{watchMinutes}:{watchSeconds}

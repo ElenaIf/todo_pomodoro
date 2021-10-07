@@ -1,16 +1,22 @@
 {
-	"notes": [
-		{
-			"id": 1,
-			"text": "Some task here for Petrovich",
-			"time": "1:00",
-			"finished": false
-		},
-		{
-			"id": 2,
-			"text": "One more task",
-			"time": "1:00",
-			"finished": false
-		}
-	]
+  "notes": [
+    {
+      "id": 1633626606824,
+      "title": "My first note again",
+      "done": true,
+      "timeSpent": 10
+    },
+    {
+      "id": 1633626644139,
+      "title": "My second note already here",
+      "done": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 1633626921343,
+      "title": "gdfgdgdh",
+      "done": true,
+      "timeSpent": 0
+    }
+  ]
 }
