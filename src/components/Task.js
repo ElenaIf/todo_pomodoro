@@ -7,9 +7,12 @@ import TaskTimer from "./TaskTimer";
 const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) => {
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
-	const [timerHasStarted, setTimerHasStarted] = useState(false);
+	// const [timerHasStarted, setTimerHasStarted] = useState(false);
 	const [isRunning, setIsRunning] = useState(false);
-	const [seconds, setSeconds] = useState(0);
+	const [timer, setTimer] = useState(1500);
+	const [seconds, setSeconds] = useState(null);
+	const [renderReadyTimer, setRenderReadyTimer] = useState(false);
+	const [renderTimer, setRenderTimer] = useState(false);
 
 	if (edit) {
 		return (
@@ -65,15 +68,17 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 			</button>
 			<button
 				onClick={() => {
-					setTimerHasStarted(!timerHasStarted);
+					// setTimerHasStarted(true);
 					setIsRunning(true);
-					setSeconds(0);
+					setSeconds(timer);
+					setRenderReadyTimer(false);
+					setRenderTimer(true);
 				}}
 			>
 				Start timer
 			</button>
 
-			{timerHasStarted === true ? (
+			{renderTimer === true ? (
 				<TaskTimer
 					isRunning={isRunning}
 					setIsRunning={setIsRunning}
@@ -81,10 +86,12 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 					saveTimeIntoTodo={saveTimeIntoTodo}
 					seconds={seconds}
 					setSeconds={setSeconds}
+					timer={timer}
+					renderReadyTimer={renderReadyTimer}
+					setRenderReadyTimer={setRenderReadyTimer}
+					setRenderTimer={setRenderTimer}
 				/>
-			) : (
-				<div>Not started</div>
-			)}
+			) : null}
 		</>
 	);
 };
