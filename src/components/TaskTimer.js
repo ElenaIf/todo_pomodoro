@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import "../style/css/Timer.css";
 
+import timerIsReadyAudio from "../assets/sounds/mixkit-happy-bell-alert-601.wav";
+
 const TaskTimer = ({
 	todo,
 	saveTimeIntoTodo,
@@ -17,6 +19,7 @@ const TaskTimer = ({
 	const [newTimeTodo, setnewTimeTodo] = useState(todo.timeSpent);
 
 	let totalTime;
+	let timerIsReadySound = new Audio(timerIsReadyAudio);
 
 	useEffect(() => {
 		if (isRunning) {
@@ -37,6 +40,7 @@ const TaskTimer = ({
 			totalTime = newTimeTodo + (timer - seconds);
 			// setnewTimeTodo(totalTime);
 			saveTimeIntoTodo(todo, totalTime);
+			timerIsReadySound.play();
 		}
 	}, [seconds]);
 

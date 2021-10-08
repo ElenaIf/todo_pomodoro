@@ -3,7 +3,7 @@ import React from "react";
 import AddTaskBar from "../components/AddTaskBar";
 import TaskList from "../components/TaskList";
 
-const MainLeft = ({
+const TodoApp = ({
 	setTodosArray,
 	todosArray,
 	toggleTodo,
@@ -27,4 +27,4 @@ const MainLeft = ({
 	);
 };
 
-export default MainLeft;
+export default TodoApp;

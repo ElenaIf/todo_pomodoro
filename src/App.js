@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MainLeft from "./pages/MainLeft";
+import MainLeft from "./pages/ToDoApp";
 import MainRight from "./pages/MainRight";
+import Main from "./pages/Main";
 
 const initialTodos = [
 	{
@@ -75,26 +77,19 @@ const App = () => {
 	};
 
 	return (
-		<>
-			<div className="container">
-				<Header />
-
-				{/* <button onClick={this.getAllNotes}>Click me</button> */}
-				<main>
-					<MainLeft
-						todosArray={todosArray}
-						toggleTodo={toggleTodo}
-						setTodosArray={setTodosArray}
-						addTodo={addTodo}
-						updateTodo={updateTodo}
-						deleteTodo={deleteTodo}
-						saveTimeIntoTodo={saveTimeIntoTodo}
-					/>
-					<MainRight />
-				</main>
-				<Footer />
-			</div>
-		</>
+		<Router>
+			<Header />
+			<Main
+				todosArray={todosArray}
+				toggleTodo={toggleTodo}
+				setTodosArray={setTodosArray}
+				addTodo={addTodo}
+				updateTodo={updateTodo}
+				deleteTodo={deleteTodo}
+				saveTimeIntoTodo={saveTimeIntoTodo}
+			/>
+			<Footer />
+		</Router>
 	);
 };
 

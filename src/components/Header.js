@@ -1,5 +1,7 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 import "../style/css/header.css";
 
 const Header = () => {
@@ -8,10 +10,10 @@ const Header = () => {
 			<p>Header here</p>
 			<ul>
 				<li>
-					<a href="/">Home</a>
+					<NavLink to="/">Home</NavLink>
 				</li>
 				<li>
-					<a href="/about">About</a>
+					<NavLink to="/about">About</NavLink>
 				</li>
 			</ul>
 		</header>
