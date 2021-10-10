@@ -9,7 +9,11 @@
 
 body {
 	height: 100vh;
-	background-image: linear-gradient(to bottom, #0487d9, #7aa1e3, #b1bdec, #dcddf5, #ffffff);
+	background-image: url("/src/assets/images/Background.png");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+	background-repeat: no-repeat;
 }
 
 #root {
