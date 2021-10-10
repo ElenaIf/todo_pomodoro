@@ -16,11 +16,11 @@ const AddTaskBar = ({ addTodo }) => {
 		setTodoText(event.target.value);
 	};
 	return (
-		<div className="taskbar">
-			<p>Hello from task bar</p>
+		<div className="task-input">
 			<form onSubmit={(event) => submitNewTask(event)}>
 				<input
 					name="todo"
+					placeholder="Add your task here"
 					value={todoText}
 					onChange={(event) => {
 						onInputChange(event);

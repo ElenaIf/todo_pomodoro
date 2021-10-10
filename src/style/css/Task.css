@@ -1,0 +1,145 @@
+.single-task-area {
+  color: white;
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0.5rem;
+}
+
+.todo-bullet {
+  border: none;
+  padding: 2px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  background-image: radial-gradient(circle, #d777f2, #b77ef6, #9683f5, #7487f1c2, #4f87e996, #3b8ce87c, #2893e550);
+}
+
+.todo-text {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 2rem;
+}
+
+.todo-text:hover {
+  cursor: pointer;
+}
+
+.total-time {
+  padding: 0.5rem;
+}
+
+.buttons {
+  padding: 0.5rem;
+}
+
+.fa-times {
+  height: 100%;
+  font-size: 1rem;
+  color: #d777f2;
+  margin: 0 1rem;
+}
+
+.fa-times:hover {
+  cursor: pointer;
+}
+
+.fa-pencil {
+  height: 100%;
+  font-size: 1rem;
+  color: #d777f2;
+  margin: 0;
+}
+
+.fa-pencil:hover {
+  cursor: pointer;
+}
+
+.timer-button {
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 2rem;
+}
+
+.timer-button:hover {
+  cursor: pointer;
+}
+
+.edit-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 0 2rem 0;
+}
+
+.edit-form input {
+  width: 93%;
+  height: 100%;
+  margin: 0 0.5rem 0 0;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0.5em;
+  background-color: #049dd973;
+  color: white;
+}
+
+.edit-form input::-webkit-input-placeholder {
+  color: white;
+}
+
+.edit-form input:-ms-input-placeholder {
+  color: white;
+}
+
+.edit-form input::-ms-input-placeholder {
+  color: white;
+}
+
+.edit-form input::placeholder {
+  color: white;
+}
+
+.edit-form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.edit-form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
+.edit-form button {
+  margin: 0 0.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #049dd973;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem;
+}
+
+.edit-form button:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=Task.css.map */

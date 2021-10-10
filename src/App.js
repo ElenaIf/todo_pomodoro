@@ -1,31 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import axios from "axios";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MainLeft from "./pages/ToDoApp";
-import MainRight from "./pages/MainRight";
+
 import Main from "./pages/Main";
 
 const initialTodos = [
 	{
 		id: 1,
-		title: "do groceries",
+		title: "Finish doing my homework",
 		done: true,
 		timeSpent: 0,
 	},
 	{
 		id: 2,
-		title: "do dishes",
+		title: "Clean at home",
 		done: false,
 		timeSpent: 150,
 	},
 	{
 		id: 3,
-		title: "cleaning",
+		title: "Take the dog out",
 		done: false,
-		timeSpent: 0,
+		timeSpent: 7245,
 	},
 ];
 

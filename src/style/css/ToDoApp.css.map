@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,mBAAmB,CAAC;EACnB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,WAAW;EAClC,kBAAkB,EAAE,OAAO;EAC3B,GAAG,EAAE,OAAO;EACZ,mBAAmB,EAClB,mEACgC;CACjC",
+    "sources": [
+        "../ToDoApp.scss"
+    ],
+    "names": [],
+    "file": "ToDoApp.css"
+}

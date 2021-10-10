@@ -13,20 +13,21 @@ const TaskList = ({
 	saveTimeIntoTodo,
 }) => {
 	return (
-		<div className="tasklist">
-			<p>Hello from task list</p>
-			{todosArray.map((todo) => (
-				<Task
-					key={todo.id}
-					todo={todo}
-					toggleTodo={toggleTodo}
-					updateTodo={updateTodo}
-					deleteTodo={deleteTodo}
-					todosArray={todosArray}
-					setTodosArray={setTodosArray}
-					saveTimeIntoTodo={saveTimeIntoTodo}
-				/>
-			))}
+		<div className="tasks-area">
+			<div className="tasks">
+				{todosArray.map((todo) => (
+					<Task
+						key={todo.id}
+						todo={todo}
+						toggleTodo={toggleTodo}
+						updateTodo={updateTodo}
+						deleteTodo={deleteTodo}
+						todosArray={todosArray}
+						setTodosArray={setTodosArray}
+						saveTimeIntoTodo={saveTimeIntoTodo}
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

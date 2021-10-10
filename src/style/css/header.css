@@ -1,5 +1,4 @@
 header {
-  border: 1px solid #2e2c2c;
   grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,6 +6,26 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0.5rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0487d9), color-stop(#1294df), color-stop(#25a1e4), color-stop(#38aee9ce), color-stop(#4cbaeda6), color-stop(#6ec2f26b), color-stop(#89cbf74b), to(#a0d3fb21));
+  background-image: linear-gradient(to bottom, #0487d9, #1294df, #25a1e4, #38aee9ce, #4cbaeda6, #6ec2f26b, #89cbf74b, #a0d3fb21);
 }
-/*# sourceMappingURL=header.css.map */
+
+header ul {
+  margin: 0 0 0 40px;
+}
+
+header ul li {
+  display: inline;
+  margin-right: 2rem;
+  color: white;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=Header.css.map */

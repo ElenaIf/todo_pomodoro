@@ -2,6 +2,9 @@ import React from "react";
 
 import AddTaskBar from "../components/AddTaskBar";
 import TaskList from "../components/TaskList";
+import PieChart from "../components/PieChart";
+
+import "../style/css/ToDoApp.css";
 
 const TodoApp = ({
 	setTodosArray,
@@ -13,7 +16,7 @@ const TodoApp = ({
 	saveTimeIntoTodo,
 }) => {
 	return (
-		<div className="main-left">
+		<div className="container-todo-app">
 			<AddTaskBar addTodo={addTodo} />
 			<TaskList
 				todosArray={todosArray}
@@ -23,6 +26,7 @@ const TodoApp = ({
 				setTodosArray={setTodosArray}
 				saveTimeIntoTodo={saveTimeIntoTodo}
 			/>
+			<PieChart />
 		</div>
 	);
 };

@@ -1,47 +1,25 @@
 @import "./variables";
 
-html {
-	font-size: 1rem;
-	box-sizing: border-box;
-}
-
-body,
-#root {
-	height: 100vh;
+* {
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 1rem;
 }
 
-.container {
+body {
+	height: 100vh;
+	background-image: linear-gradient(to bottom, #0487d9, #7aa1e3, #b1bdec, #dcddf5, #ffffff);
+}
+
+#root {
 	display: grid;
 	grid-template-areas:
 		"header"
 		"main"
 		"footer";
-	grid-template-rows: 5rem 1fr 5rem;
+	grid-template-rows: 4rem 1fr 5rem;
 	grid-template-columns: 1fr;
 	height: 100%;
 	width: 100%;
-}
-
-main {
-	grid-area: main;
-	display: flex;
-}
-
-.main-left {
-	width: 65%;
-	display: flex;
-	flex-direction: column;
-}
-
-.main-right {
-	width: 35%;
-}
-
-footer {
-	border: $border;
-	grid-area: footer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
