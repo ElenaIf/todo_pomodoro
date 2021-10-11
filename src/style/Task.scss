@@ -18,24 +18,21 @@
 	width: 25px;
 	border-radius: 50%;
 	display: inline-block;
-	background-image: radial-gradient(
-		circle,
-		#d777f2,
-		#b77ef6,
-		#9683f5,
-		#7487f1c2,
-		#4f87e996,
-		#3b8ce87c,
-		#2893e550
-	);
+	background-image: url("/src/assets/images/CenterCircle.png");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: 170%; /* Resize the background image to cover the entire container */
+	background-repeat: no-repeat;
 }
 
 .todo-text {
-	display: inline-block;
-	margin: 0 1rem;
-	font-size: 2rem;
-	&:hover {
-		cursor: pointer;
+	span {
+		display: inline-block;
+		margin: 0 1rem;
+		font-size: 2rem;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
@@ -62,7 +59,7 @@
 	height: 100%;
 	font-size: 1rem;
 	color: $dark-pink;
-	margin: 0;
+	margin: 0 0 0 0.5rem;
 
 	&:hover {
 		cursor: pointer;

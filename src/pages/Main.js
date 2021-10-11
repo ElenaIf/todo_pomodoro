@@ -15,6 +15,7 @@ const Main = ({
 	updateTodo,
 	deleteTodo,
 	saveTimeIntoTodo,
+	setshowSecondTimer,
 }) => {
 	return (
 		<main>
@@ -28,6 +29,7 @@ const Main = ({
 						updateTodo={updateTodo}
 						deleteTodo={deleteTodo}
 						saveTimeIntoTodo={saveTimeIntoTodo}
+						setshowSecondTimer={setshowSecondTimer}
 					/>
 				</Route>
 				<Route path="/about">

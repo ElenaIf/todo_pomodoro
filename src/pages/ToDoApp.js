@@ -14,6 +14,7 @@ const TodoApp = ({
 	updateTodo,
 	deleteTodo,
 	saveTimeIntoTodo,
+	setshowSecondTimer,
 }) => {
 	return (
 		<div className="container-todo-app">
@@ -25,8 +26,9 @@ const TodoApp = ({
 				deleteTodo={deleteTodo}
 				setTodosArray={setTodosArray}
 				saveTimeIntoTodo={saveTimeIntoTodo}
+				setshowSecondTimer={setshowSecondTimer}
 			/>
-			<PieChart />
+			<PieChart todosArray={todosArray} setTodosArray={setTodosArray} />
 		</div>
 	);
 };

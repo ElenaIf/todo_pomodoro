@@ -1,9 +1,27 @@
-$border: 1px solid rgb(46, 44, 44);
+// Imports
 
-$light-pink: #f2a7de;
-$dark-pink: #d777f2;
-$dark-blue: #0487d9;
-$blue-neutral: #049dd9;
-$light-blue: #66caf2;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
 
-$blue-neutral-with-opacity: #049dd973;
+// Colors
+$dark-pink: #e9a0f2;
+$light-pink: #edc9f2;
+$purple: #7b77f2;
+$dark-blue: #22a2f2;
+$light-blue: #38bdf2;
+
+$main-text-color: white;
+
+$blue-neutral-with-opacity: #22a2f258;
+$light-blue-opacity: #38bdf25b;
+
+$outline: $dark-pink;
+
+// Mixins
+
+@mixin main-font {
+	font: {
+		family: "Nunito", sans-serif;
+		weight: 200;
+	}
+	color: $main-text-color;
+}

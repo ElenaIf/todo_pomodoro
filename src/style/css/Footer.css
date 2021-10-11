@@ -10,7 +10,10 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#0487d9), color-stop(#1294df), to(#25a1e4));
-  background-image: linear-gradient(to top, #0487d9, #1294df, #25a1e4);
+  background: #22a2f2;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(14%, #22a2f2), color-stop(98%, rgba(56, 189, 242, 0.158701)));
+  background: linear-gradient(0deg, #22a2f2 14%, rgba(56, 189, 242, 0.158701) 98%);
+  -webkit-box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
+          box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
 }
 /*# sourceMappingURL=Footer.css.map */

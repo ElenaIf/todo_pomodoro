@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
 .single-task-area {
   color: white;
 }
@@ -22,16 +23,23 @@
   width: 25px;
   border-radius: 50%;
   display: inline-block;
-  background-image: radial-gradient(circle, #d777f2, #b77ef6, #9683f5, #7487f1c2, #4f87e996, #3b8ce87c, #2893e550);
+  background-image: url("/src/assets/images/CenterCircle.png");
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: 170%;
+  /* Resize the background image to cover the entire container */
+  background-repeat: no-repeat;
 }
 
-.todo-text {
+.todo-text span {
   display: inline-block;
   margin: 0 1rem;
   font-size: 2rem;
 }
 
-.todo-text:hover {
+.todo-text span:hover {
   cursor: pointer;
 }
 
@@ -46,7 +54,7 @@
 .fa-times {
   height: 100%;
   font-size: 1rem;
-  color: #d777f2;
+  color: #e9a0f2;
   margin: 0 1rem;
 }
 
@@ -57,8 +65,8 @@
 .fa-pencil {
   height: 100%;
   font-size: 1rem;
-  color: #d777f2;
-  margin: 0;
+  color: #e9a0f2;
+  margin: 0 0 0 0.5rem;
 }
 
 .fa-pencil:hover {
@@ -98,7 +106,7 @@
   border: 1px solid white;
   border-radius: 10px;
   padding: 0.5em;
-  background-color: #049dd973;
+  background-color: #22a2f258;
   color: white;
 }
 
@@ -133,7 +141,7 @@
   text-align: center;
   border: none;
   border-radius: 10px;
-  background-color: #049dd973;
+  background-color: #22a2f258;
   border: 1px solid white;
   color: white;
   padding: 0.5rem;

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
 header {
   grid-area: header;
   display: -webkit-box;
@@ -6,8 +7,11 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#0487d9), color-stop(#1294df), color-stop(#25a1e4), color-stop(#38aee9ce), color-stop(#4cbaeda6), color-stop(#6ec2f26b), color-stop(#89cbf74b), to(#a0d3fb21));
-  background-image: linear-gradient(to bottom, #0487d9, #1294df, #25a1e4, #38aee9ce, #4cbaeda6, #6ec2f26b, #89cbf74b, #a0d3fb21);
+  background: #22a2f2;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(14%, #22a2f2), color-stop(98%, rgba(56, 189, 242, 0.158701)));
+  background: linear-gradient(180deg, #22a2f2 14%, rgba(56, 189, 242, 0.158701) 98%);
+  -webkit-box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
+          box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
 }
 
 header ul {

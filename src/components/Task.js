@@ -6,10 +6,16 @@ import TaskTimer from "./TaskTimer";
 
 import "../style/css/Task.css";
 
-const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) => {
+const Task = ({
+	todo,
+	toggleTodo,
+	updateTodo,
+	deleteTodo,
+	saveTimeIntoTodo,
+	setshowSecondTimer,
+}) => {
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
-	// const [timerHasStarted, setTimerHasStarted] = useState(false);
 	const [isRunning, setIsRunning] = useState(false);
 	const [timer, setTimer] = useState(15);
 	const [seconds, setSeconds] = useState(null);
@@ -68,15 +74,16 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 		<div className="single-task-area">
 			<div className="todo">
 				<div className="todo-bullet"></div>
-				<div
-					className="todo-text"
-					onClick={() => {
-						toggleTodo(todo);
-					}}
-					key={todo.id}
-					style={{ textDecoration: todo.done ? "line-through" : undefined }}
-				>
-					{todo.title}{" "}
+				<div className="todo-text" key={todo.id}>
+					<span
+						onClick={() => {
+							toggleTodo(todo);
+						}}
+						style={{ textDecoration: todo.done ? "line-through" : undefined }}
+					>
+						{todo.title}{" "}
+					</span>
+
 					<i
 						class="fa fa-pencil"
 						aria-hidden="true"
@@ -106,6 +113,14 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 					}}
 				>
 					Start timer
+				</button>
+				<button
+					className="timer-button"
+					onClick={() => {
+						setshowSecondTimer(true);
+					}}
+				>
+					Start new timer - first page
 				</button>
 			</div>
 

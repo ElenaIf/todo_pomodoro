@@ -4,17 +4,13 @@ header {
 	grid-area: header;
 	display: flex;
 	align-items: center;
-	background-image: linear-gradient(
-		to bottom,
-		#0487d9,
-		#1294df,
-		#25a1e4,
-		#38aee9ce,
-		#4cbaeda6,
-		#6ec2f26b,
-		#89cbf74b,
-		#a0d3fb21
+	background: rgb(34, 162, 242);
+	background: linear-gradient(
+		180deg,
+		rgba(34, 162, 242, 1) 14%,
+		rgba(56, 189, 242, 0.15870098039215685) 98%
 	);
+	box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.15870098039215685);
 
 	ul {
 		margin: 0 0 0 40px;

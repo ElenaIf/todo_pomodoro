@@ -1,9 +1,9 @@
 @import "./variables";
 
 .timers {
-	height: 100vh;
+	height: 100%;
 	width: 100vw;
-	background-image: linear-gradient(to bottom, #0487d9, #7aa1e3, #b1bdec, #dcddf5, #ffffff);
+	// background-image: linear-gradient(to bottom, #0487d9, #7aa1e3, #b1bdec, #dcddf5, #ffffff);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -11,6 +11,11 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	background-image: url("/src/assets/images/Background.png");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+	background-repeat: no-repeat;
 }
 
 .full-screen-timer {
@@ -38,7 +43,13 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+	// background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+	background-image: url("/src/assets/images/CenterCircle.png");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: 75vh 75vh;
+	background-repeat: no-repeat;
+
 	span {
 		z-index: -1;
 		position: absolute;
