@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-// import UpdateTaskBar from "./UpdateTaskBar";
-
-import TaskTimer from "./TaskTimer";
-
 import "../style/css/Task.css";
 
 const Task = ({
@@ -11,16 +7,15 @@ const Task = ({
 	toggleTodo,
 	updateTodo,
 	deleteTodo,
-	saveTimeIntoTodo,
 	setshowSecondTimer,
+	setIsRunning,
+	timer,
+	setRenderReadyTimer,
+	setSelectedTodo,
+	setSeconds,
 }) => {
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
-	const [isRunning, setIsRunning] = useState(false);
-	const [timer, setTimer] = useState(15);
-	const [seconds, setSeconds] = useState(null);
-	const [renderReadyTimer, setRenderReadyTimer] = useState(false);
-	const [renderTimer, setRenderTimer] = useState(false);
 
 	if (edit) {
 		return (
@@ -54,17 +49,9 @@ const Task = ({
 		.toString()
 		.padStart(2, "0");
 
-	// let watchHours = Math.floor(todo.timeSpent / 60 / 60)
-	// 	.toString()
-	// 	.padStart(2, "0");
-
 	let watchMinutes = Math.floor((todo.timeSpent - Math.floor(todo.timeSpent / 3600) * 3600) / 60)
 		.toString()
 		.padStart(2, "0");
-
-	// let watchMinutes = Math.floor(todo.timeSpent / 60)
-	// 	.toString()
-	// 	.padStart(2, "0");
 
 	let watchSeconds = (todo.timeSpent - Math.floor(todo.timeSpent / 60) * 60)
 		.toString()
@@ -85,14 +72,14 @@ const Task = ({
 					</span>
 
 					<i
-						class="fa fa-pencil"
+						className="fa fa-pencil"
 						aria-hidden="true"
 						onClick={() => {
 							setEdit(todo);
 						}}
 					></i>
 					<i
-						class="fa fa-times"
+						className="fa fa-times"
 						aria-hidden="true"
 						onClick={() => {
 							deleteTodo(todo);
@@ -105,39 +92,16 @@ const Task = ({
 				<button
 					className="timer-button"
 					onClick={() => {
-						// setTimerHasStarted(true);
+						setshowSecondTimer(true);
 						setIsRunning(true);
 						setSeconds(timer);
 						setRenderReadyTimer(false);
-						setRenderTimer(true);
+						setSelectedTodo(todo);
 					}}
 				>
 					Start timer
 				</button>
-				<button
-					className="timer-button"
-					onClick={() => {
-						setshowSecondTimer(true);
-					}}
-				>
-					Start new timer - first page
-				</button>
 			</div>
-
-			{renderTimer === true ? (
-				<TaskTimer
-					isRunning={isRunning}
-					setIsRunning={setIsRunning}
-					todo={todo}
-					saveTimeIntoTodo={saveTimeIntoTodo}
-					seconds={seconds}
-					setSeconds={setSeconds}
-					timer={timer}
-					renderReadyTimer={renderReadyTimer}
-					setRenderReadyTimer={setRenderReadyTimer}
-					setRenderTimer={setRenderTimer}
-				/>
-			) : null}
 		</div>
 	);
 };

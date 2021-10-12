@@ -10,8 +10,12 @@ const TaskList = ({
 	toggleTodo,
 	updateTodo,
 	deleteTodo,
-	saveTimeIntoTodo,
 	setshowSecondTimer,
+	setIsRunning,
+	timer,
+	setRenderReadyTimer,
+	setSelectedTodo,
+	setSeconds,
 }) => {
 	return (
 		<div className="tasks-area">
@@ -25,8 +29,12 @@ const TaskList = ({
 						deleteTodo={deleteTodo}
 						todosArray={todosArray}
 						setTodosArray={setTodosArray}
-						saveTimeIntoTodo={saveTimeIntoTodo}
 						setshowSecondTimer={setshowSecondTimer}
+						setIsRunning={setIsRunning}
+						timer={timer}
+						setRenderReadyTimer={setRenderReadyTimer}
+						setSelectedTodo={setSelectedTodo}
+						setSeconds={setSeconds}
 					/>
 				))}
 			</div>

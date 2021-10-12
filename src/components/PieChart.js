@@ -22,8 +22,6 @@ const PieChart = ({ setTodosArray, todosArray }) => {
 		colorsArray.push(todo.color);
 	});
 
-	console.log("array is", colorsArray);
-
 	const chart = () => {
 		setChartData({
 			labels: labelsArray,

@@ -5,7 +5,6 @@ import "../style/css/TaskTimer.css";
 import timerIsReadyAudio from "../assets/sounds/mixkit-happy-bell-alert-601.wav";
 
 const TaskTimer = ({
-	todo,
 	saveTimeIntoTodo,
 	isRunning,
 	setIsRunning,
@@ -14,9 +13,10 @@ const TaskTimer = ({
 	timer,
 	renderReadyTimer,
 	setRenderReadyTimer,
-	setRenderTimer,
+	selectedTodo,
+	setshowSecondTimer,
 }) => {
-	const [newTimeTodo, setnewTimeTodo] = useState(todo.timeSpent);
+	const [newTimeTodo, setnewTimeTodo] = useState(selectedTodo.timeSpent);
 
 	let totalTime;
 	let timerIsReadySound = new Audio(timerIsReadyAudio);
@@ -39,7 +39,7 @@ const TaskTimer = ({
 			// setIsRunning(false);
 			totalTime = newTimeTodo + (timer - seconds);
 			// setnewTimeTodo(totalTime);
-			saveTimeIntoTodo(todo, totalTime);
+			saveTimeIntoTodo(selectedTodo, totalTime);
 			timerIsReadySound.play();
 		}
 	}, [seconds]);
@@ -60,7 +60,7 @@ const TaskTimer = ({
 							onClick={() => {
 								setIsRunning(false);
 								setRenderReadyTimer(false);
-								setRenderTimer(false);
+								setshowSecondTimer(false);
 							}}
 						>
 							Close
@@ -68,7 +68,7 @@ const TaskTimer = ({
 					</div>
 					<div className="timer-task-name-area">
 						<h2>Timer ready for: </h2>
-						<h2>{todo.title}</h2>
+						<h2>{selectedTodo.title}</h2>
 					</div>
 				</div>
 			) : (
@@ -83,8 +83,8 @@ const TaskTimer = ({
 								setIsRunning(false);
 								totalTime = newTimeTodo + (timer - seconds);
 								setnewTimeTodo(totalTime);
-								saveTimeIntoTodo(todo, totalTime);
-								setRenderTimer(false);
+								saveTimeIntoTodo(selectedTodo, totalTime);
+								setshowSecondTimer(false);
 							}}
 						>
 							Stop
@@ -99,7 +99,7 @@ const TaskTimer = ({
 
 					<div className="timer-task-name-area">
 						<h2>Timer started for: </h2>
-						<h2>{todo.title}</h2>
+						<h2>{selectedTodo.title}</h2>
 					</div>
 				</div>
 			)}

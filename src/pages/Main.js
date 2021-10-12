@@ -14,8 +14,12 @@ const Main = ({
 	addTodo,
 	updateTodo,
 	deleteTodo,
-	saveTimeIntoTodo,
 	setshowSecondTimer,
+	setIsRunning,
+	timer,
+	setRenderReadyTimer,
+	setSelectedTodo,
+	setSeconds,
 }) => {
 	return (
 		<main>
@@ -28,8 +32,12 @@ const Main = ({
 						addTodo={addTodo}
 						updateTodo={updateTodo}
 						deleteTodo={deleteTodo}
-						saveTimeIntoTodo={saveTimeIntoTodo}
 						setshowSecondTimer={setshowSecondTimer}
+						setIsRunning={setIsRunning}
+						timer={timer}
+						setRenderReadyTimer={setRenderReadyTimer}
+						setSelectedTodo={setSelectedTodo}
+						setSeconds={setSeconds}
 					/>
 				</Route>
 				<Route path="/about">

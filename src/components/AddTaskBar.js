@@ -15,6 +15,7 @@ const AddTaskBar = ({ addTodo }) => {
 		event.persist();
 		setTodoText(event.target.value);
 	};
+
 	return (
 		<div className="task-input">
 			<form onSubmit={(event) => submitNewTask(event)}>

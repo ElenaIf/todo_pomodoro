@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import "../style/css/Timer.css";
 
-const Timer2 = () => {
+const Timer = () => {
 	const [seconds, setSeconds] = useState(0);
 	const [isRunning, setIsRunning] = useState(false);
-
-	const saveToTask = () => {
-		console.log(seconds);
-	};
 
 	useEffect(() => {
 		if (isRunning) {
@@ -38,7 +34,6 @@ const Timer2 = () => {
 				<button
 					onClick={() => {
 						setIsRunning(false);
-						saveToTask();
 					}}
 				>
 					Stop
@@ -65,4 +60,4 @@ const Timer2 = () => {
 	);
 };
 
-export default Timer2;
+export default Timer;
