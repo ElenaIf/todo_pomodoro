@@ -1,28 +1,25 @@
 {
-  "notes": [
-    {
-      "id": 1633626606824,
-      "title": "My first note again",
-      "done": true,
-      "timeSpent": 17
-    },
-    {
-      "id": 1633626644139,
-      "title": "My second note already here",
-      "done": false,
-      "timeSpent": 0
-    },
-    {
-      "id": 1633626921343,
-      "title": "gdfgdgdh",
-      "done": true,
-      "timeSpent": 0
-    },
-    {
-      "id": 1633680161462,
-      "title": "tttt 5555",
-      "done": false,
-      "timeSpent": 0
-    }
-  ]
+	"notes": [
+		{
+			"id": 1633626606824,
+			"title": "My first note again",
+			"done": true,
+			"timeSpent": 17,
+			"color": "hsl(299, 36%, 55%)"
+		},
+		{
+			"id": 1633626644139,
+			"title": "My second note already here",
+			"done": false,
+			"timeSpent": 0,
+			"color": "hsl(283, 24%, 88%)"
+		},
+		{
+			"id": 1633626921343,
+			"title": "gdfgdgdh",
+			"done": true,
+			"timeSpent": 0,
+			"color": "hsl(273, 44%, 70%)"
+		}
+	]
 }

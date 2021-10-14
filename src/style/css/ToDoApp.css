@@ -1,0 +1,12 @@
+.container-todo-app {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 30vh 1fr;
+      grid-template-rows: 30vh 1fr;
+  gap: 0px 0px;
+      grid-template-areas: "task-input task-input task-input" "tasks-area tasks-area pie-area";
+}
+/*# sourceMappingURL=ToDoApp.css.map */

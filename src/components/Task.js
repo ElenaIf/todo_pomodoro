@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 
-// import UpdateTaskBar from "./UpdateTaskBar";
+import "../style/css/Task.css";
 
-import TaskTimer from "./TaskTimer";
-
-const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) => {
+const Task = ({
+	todo,
+	toggleTodo,
+	updateTodo,
+	deleteTodo,
+	setshowSecondTimer,
+	setIsRunning,
+	timer,
+	setRenderReadyTimer,
+	setSelectedTodo,
+	setSeconds,
+}) => {
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
-	const [timerHasStarted, setTimerHasStarted] = useState(false);
-	const [isRunning, setIsRunning] = useState(false);
-	const [seconds, setSeconds] = useState(0);
 
 	if (edit) {
 		return (
 			<form
+				className="edit-form"
 				onSubmit={(event) => {
 					event.preventDefault();
 					if (newTodoText !== "") {
@@ -38,54 +45,64 @@ const Task = ({ todo, toggleTodo, updateTodo, deleteTodo, saveTimeIntoTodo }) =>
 		);
 	}
 
-	return (
-		<>
-			<li
-				onClick={() => {
-					toggleTodo(todo);
-				}}
-				key={todo.id}
-				style={{ textDecoration: todo.done ? "line-through" : undefined }}
-			>
-				{todo.title} - Time spent: {todo.timeSpent}
-			</li>
-			<button
-				onClick={() => {
-					setEdit(todo);
-				}}
-			>
-				Update
-			</button>
-			<button
-				onClick={() => {
-					deleteTodo(todo);
-				}}
-			>
-				Remove
-			</button>
-			<button
-				onClick={() => {
-					setTimerHasStarted(!timerHasStarted);
-					setIsRunning(true);
-					setSeconds(0);
-				}}
-			>
-				Start timer
-			</button>
+	let watchHours = Math.floor(todo.timeSpent / 3600)
+		.toString()
+		.padStart(2, "0");
 
-			{timerHasStarted === true ? (
-				<TaskTimer
-					isRunning={isRunning}
-					setIsRunning={setIsRunning}
-					todo={todo}
-					saveTimeIntoTodo={saveTimeIntoTodo}
-					seconds={seconds}
-					setSeconds={setSeconds}
-				/>
-			) : (
-				<div>Not started</div>
-			)}
-		</>
+	let watchMinutes = Math.floor((todo.timeSpent - Math.floor(todo.timeSpent / 3600) * 3600) / 60)
+		.toString()
+		.padStart(2, "0");
+
+	let watchSeconds = (todo.timeSpent - Math.floor(todo.timeSpent / 60) * 60)
+		.toString()
+		.padStart(2, "0");
+
+	return (
+		<div className="single-task-area">
+			<div className="todo">
+				<div className="todo-bullet"></div>
+				<div className="todo-text" key={todo.id}>
+					<span
+						onClick={() => {
+							toggleTodo(todo);
+						}}
+						style={{ textDecoration: todo.done ? "line-through" : undefined }}
+					>
+						{todo.title}{" "}
+					</span>
+
+					<i
+						className="fa fa-pencil"
+						aria-hidden="true"
+						onClick={() => {
+							setEdit(todo);
+						}}
+					></i>
+					<i
+						className="fa fa-times"
+						aria-hidden="true"
+						onClick={() => {
+							deleteTodo(todo);
+						}}
+					></i>
+				</div>
+			</div>
+			<div className="total-time">
+				Total time spent: {`${watchHours}:${watchMinutes}:${watchSeconds}`}{" "}
+				<button
+					className="timer-button"
+					onClick={() => {
+						setshowSecondTimer(true);
+						setIsRunning(true);
+						setSeconds(timer);
+						setRenderReadyTimer(false);
+						setSelectedTodo(todo);
+					}}
+				>
+					Start timer
+				</button>
+			</div>
+		</div>
 	);
 };
 
