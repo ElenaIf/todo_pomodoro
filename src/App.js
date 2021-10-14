@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import axios from "axios";
 
@@ -13,23 +13,6 @@ const baseURL = "https://todo-pomodoro-backend.herokuapp.com/notes/all";
 const postURL = "https://todo-pomodoro-backend.herokuapp.com/notes/add";
 const deleteURL = "https://todo-pomodoro-backend.herokuapp.com/notes/delete";
 const editURL = "https://todo-pomodoro-backend.herokuapp.com/notes/edit";
-
-// const initialTodos = [
-// 	{
-// 		id: 1,
-// 		title: "Finish doing my homework",
-// 		done: true,
-// 		timeSpent: 50,
-// 		color: "hsl(299, 36%, 55%)",
-// 	},
-// 	{
-// 		id: 2,
-// 		title: "Clean at home",
-// 		done: false,
-// 		timeSpent: 150,
-// 		color: "hsl(283, 24%, 88%)",
-// 	},
-// ];
 
 const App = () => {
 	const [todosArray, setTodosArray] = useState([]);
