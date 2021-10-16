@@ -1,10 +1,12 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 import "../style/css/Header.css";
 
 const Header = () => {
+	const { signup, currentUser } = useAuth();
 	return (
 		<header>
 			<ul>
@@ -17,6 +19,8 @@ const Header = () => {
 				<li>
 					<NavLink to="/signup">Sign up</NavLink>
 				</li>
+				<li>{currentUser.email}</li>
+				<li>{currentUser.uid}</li>
 			</ul>
 		</header>
 	);

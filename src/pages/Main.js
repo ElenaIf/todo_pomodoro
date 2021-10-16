@@ -5,6 +5,8 @@ import { Switch, Route } from "react-router-dom";
 import TodoApp from "./ToDoApp";
 import About from "./About";
 import Signup from "../components/Signup/Signup";
+import Login from "../components/Signup/Login";
+import PageForLogOut from "../components/Signup/PageForLogOut";
 
 import "../style/css/Main.css";
 
@@ -41,12 +43,10 @@ const Main = ({
 						setSeconds={setSeconds}
 					/>
 				</Route>
-				<Route path="/about">
-					<About />
-				</Route>
-				<Route path="/signup">
-					<Signup />
-				</Route>
+				<Route path="/about" component={About} />
+				<Route path="/signup" component={Signup} />
+				<Route path="/login" component={Login} />
+				<Route path="/profile" component={PageForLogOut} />
 			</Switch>
 		</main>
 	);
