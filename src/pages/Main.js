@@ -7,8 +7,12 @@ import About from "./About";
 import Signup from "../components/Signup/Signup";
 import Login from "../components/Signup/Login";
 import PageForLogOut from "../components/Signup/PageForLogOut";
+import ForgotPassword from "../components/Signup/ForgotPassword";
+
+import PrivateRoute from "../components/PrivateRoute";
 
 import "../style/css/Main.css";
+import UpdateProfile from "../components/Signup/UpdateProfile";
 
 const Main = ({
 	setTodosArray,
@@ -27,7 +31,7 @@ const Main = ({
 	return (
 		<main>
 			<Switch>
-				<Route exact path="/">
+				<PrivateRoute exact path="/">
 					<TodoApp
 						todosArray={todosArray}
 						toggleTodo={toggleTodo}
@@ -42,11 +46,13 @@ const Main = ({
 						setSelectedTodo={setSelectedTodo}
 						setSeconds={setSeconds}
 					/>
-				</Route>
+				</PrivateRoute>
+				<PrivateRoute path="/update-profile" component={UpdateProfile} />
 				<Route path="/about" component={About} />
 				<Route path="/signup" component={Signup} />
 				<Route path="/login" component={Login} />
 				<Route path="/profile" component={PageForLogOut} />
+				<Route path="/forgot-password" component={ForgotPassword} />
 			</Switch>
 		</main>
 	);

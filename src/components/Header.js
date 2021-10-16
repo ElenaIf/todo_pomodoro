@@ -19,8 +19,8 @@ const Header = () => {
 				<li>
 					<NavLink to="/signup">Sign up</NavLink>
 				</li>
-				<li>{currentUser.email}</li>
-				<li>{currentUser.uid}</li>
+				{/* <li>{currentUser.email}</li>
+				<li>{currentUser.uid}</li> */}
 			</ul>
 		</header>
 	);
