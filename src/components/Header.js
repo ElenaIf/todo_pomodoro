@@ -14,7 +14,7 @@ const Header = () => {
 		setError("");
 		try {
 			await logout();
-			history.push("/");
+			history.push("/todo/");
 		} catch {
 			setError("Failed to logout");
 		}
@@ -25,10 +25,10 @@ const Header = () => {
 			<nav>
 				<ul>
 					<li>
-						<NavLink to="/">Home</NavLink>
+						<NavLink to="/todo/">Home</NavLink>
 					</li>
 					<li>
-						<NavLink to="/about">About</NavLink>
+						<NavLink to="/todo/about">About</NavLink>
 					</li>
 					{currentUser ? (
 						<li>
@@ -36,7 +36,7 @@ const Header = () => {
 						</li>
 					) : (
 						<li>
-							<NavLink to="/login">Log in</NavLink>
+							<NavLink to="/todo/login">Log in</NavLink>
 						</li>
 					)}
 				</ul>
@@ -45,7 +45,7 @@ const Header = () => {
 				<ul>
 					<li>
 						User:{" "}
-						<Link to="/profile" style={{ textDecoration: "underline" }}>
+						<Link to="/todo/profile" style={{ textDecoration: "underline" }}>
 							{currentUser.email}
 						</Link>
 					</li>

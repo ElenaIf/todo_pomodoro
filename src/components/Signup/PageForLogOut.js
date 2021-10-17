@@ -12,7 +12,7 @@ const PageForLogOut = () => {
 		setError("");
 		try {
 			await logout();
-			history.push("/");
+			history.push("/todo/");
 		} catch {
 			setError("Failed to logout");
 		}
@@ -25,7 +25,7 @@ const PageForLogOut = () => {
 					{error && <Alert variant="danger">{error}</Alert>}
 					<strong>Email: </strong>
 					{currentUser.email}
-					<Link to="/update-profile" className="btn btn-primary w-100 mt-3">
+					<Link to="/todo/update-profile" className="btn btn-primary w-100 mt-3">
 						Update profile
 					</Link>
 				</Card.Body>

@@ -20,7 +20,7 @@ const Login = () => {
 			setError("");
 			setLoading(true);
 			await login(emailRef.current.value, passwordRef.current.value);
-			history.push("/");
+			history.push("/todo/");
 		} catch {
 			setError("Failed to sign in");
 		}
@@ -48,12 +48,12 @@ const Login = () => {
 						</Button>
 					</Form>
 					<div className="w-100 text-center mt-3">
-						<Link to="/forgot-password">Forgot Password</Link>
+						<Link to="/todo/forgot-password">Forgot Password</Link>
 					</div>
 				</Card.Body>
 			</Card>
 			<div className="w-100 text-center mt-2">
-				Don't have an account? <Link to="signup">Sign Up</Link>
+				Don't have an account? <Link to="/todo/signup">Sign Up</Link>
 			</div>
 		</Container>
 	);

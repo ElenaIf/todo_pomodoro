@@ -45,12 +45,12 @@ const ForgotPassword = () => {
 						</Button>
 					</Form>
 					<div className="w-100 text-center mt-3">
-						<Link to="/login">No, I know my password, back to Login</Link>
+						<Link to="/todo/login">No, I know my password, back to Login</Link>
 					</div>
 				</Card.Body>
 			</Card>
 			<div className="w-100 text-center mt-2">
-				Don't have an account? <Link to="signup">Sign Up</Link>
+				Don't have an account? <Link to="/todo/signup">Sign Up</Link>
 			</div>
 		</Container>
 	);

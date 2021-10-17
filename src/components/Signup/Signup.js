@@ -25,7 +25,7 @@ const Signup = () => {
 			setError("");
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
-			history.push("/");
+			history.push("/todo/");
 		} catch {
 			setError("There was a problem creating an account");
 		}
@@ -59,7 +59,7 @@ const Signup = () => {
 				</Card.Body>
 			</Card>
 			<div className="w-100 text-center mt-2">
-				Already have an account? <Link to="/login">Log In</Link>
+				Already have an account? <Link to="/todo/login">Log In</Link>
 			</div>
 		</Container>
 	);

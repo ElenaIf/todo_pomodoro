@@ -42,7 +42,7 @@ const Main = ({
 		<main>
 			<Switch>
 				{currentUser ? (
-					<Route exact path="/">
+					<Route exact path="/todo/">
 						<TodoApp
 							todosArray={todosArray}
 							setTodosArray={setTodosArray}
@@ -59,7 +59,7 @@ const Main = ({
 						/>
 					</Route>
 				) : (
-					<Route exact path="/">
+					<Route exact path="/todo/">
 						<ToDoAppUnregistered
 							todosArray={todosArrayUnregistered}
 							setTodosArray={setTodosArrayUnregistered}
@@ -77,12 +77,12 @@ const Main = ({
 					</Route>
 				)}
 
-				<PrivateRoute path="/update-profile" component={UpdateProfile} />
-				<PrivateRoute path="/profile" component={PageForLogOut} />
-				<Route path="/about" component={About} />
-				<Route path="/signup" component={Signup} />
-				<Route path="/login" component={Login} />
-				<Route path="/forgot-password" component={ForgotPassword} />
+				<PrivateRoute path="/todo/update-profile" component={UpdateProfile} />
+				<PrivateRoute path="/todo/profile" component={PageForLogOut} />
+				<Route path="/todo/about" component={About} />
+				<Route path="/todo/signup" component={Signup} />
+				<Route path="/todo/login" component={Login} />
+				<Route path="/todo/forgot-password" component={ForgotPassword} />
 			</Switch>
 		</main>
 	);
