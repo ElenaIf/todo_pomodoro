@@ -58,20 +58,12 @@ const UpdateProfile = () => {
 							<Form.Control type="email" ref={emailRef} defaultValue={currentUser.email} />
 						</Form.Group>
 						<Form.Group id="password">
-							<Form.Label>Password</Form.Label>
-							<Form.Control
-								type="password"
-								ref={passwordRef}
-								defaultValue="Leave blank to keep the same password"
-							/>
+							<Form.Label>Password (leave blank to keep the password)</Form.Label>
+							<Form.Control type="password" ref={passwordRef} />
 						</Form.Group>
 						<Form.Group id="password-confirm">
 							<Form.Label>Confirm your password</Form.Label>
-							<Form.Control
-								type="password"
-								ref={passworConfirmdRef}
-								defaultValue="Leave blank to keep the same password"
-							/>
+							<Form.Control type="password" ref={passworConfirmdRef} />
 						</Form.Group>
 						<Button disabled={loading} className="w-100" type="submit">
 							Update

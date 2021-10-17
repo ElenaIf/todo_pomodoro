@@ -12,7 +12,7 @@ const PageForLogOut = () => {
 		setError("");
 		try {
 			await logout();
-			history.push("/login");
+			history.push("/");
 		} catch {
 			setError("Failed to logout");
 		}
