@@ -32,7 +32,9 @@ const Header = () => {
 					</li>
 					{currentUser ? (
 						<li>
-							<button onClick={handleLogout}>Logout</button>
+							<button className="" onClick={handleLogout}>
+								Logout
+							</button>
 						</li>
 					) : (
 						<li>

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
+.login-card {
+  background-color: rgba(255, 255, 255, 0.397);
+  border-radius: 10px;
+}
+
+.login-button {
+  background-color: #7b77f2;
+  border: 1px solid #7b77f2;
+}
+
+.login-button:hover {
+  background-color: #22a2f2;
+}
+/*# sourceMappingURL=Login.css.map */

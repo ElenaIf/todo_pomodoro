@@ -2,30 +2,40 @@ import React, { useState, useEffect } from "react";
 
 import { Pie } from "react-chartjs-2";
 
-const PieChart = ({ todosArray }) => {
+import "../style/css/PieChart.css";
+
+const PieChart = ({ todosArray, projectArray }) => {
 	const [chartData, setChartData] = useState({});
 	let secondsArray = [];
-	let labelsArray = [];
 	let colorsArray = [];
 
-	todosArray.forEach((todo) => {
-		secondsArray.push(todo.timeSpent);
+	const getRandomColor = () => {
+		let h = Math.floor(Math.random() * (300 - 180 + 1) + 180);
+		let s = Math.floor(Math.random() * (90 - 20 + 1) + 20);
+		let l = Math.floor(Math.random() * (95 - 50 + 1) + 50);
+		let color = "hsl(" + h + ", " + s + "%, " + l + "%)";
+		return color;
+	};
+
+	projectArray.forEach((project) => {
+		let totalSecondsForProject = 0;
+		todosArray.forEach((todo) => {
+			if (project === todo.hashtag) {
+				totalSecondsForProject = totalSecondsForProject + todo.timeSpent;
+			}
+		});
+		secondsArray.push(totalSecondsForProject);
 	});
 
-	todosArray.forEach((todo) => {
-		labelsArray.push(todo.title);
-	});
-
-	todosArray.forEach((todo) => {
-		colorsArray.push(todo.color);
+	projectArray.forEach(() => {
+		colorsArray.push(getRandomColor());
 	});
 
 	const chart = () => {
 		setChartData({
-			labels: labelsArray,
+			labels: projectArray,
 			datasets: [
 				{
-					label: "level of smth",
 					data: secondsArray,
 					backgroundColor: colorsArray,
 					borderWidth: 0,
@@ -43,8 +53,12 @@ const PieChart = ({ todosArray }) => {
 			data={chartData}
 			options={{
 				responsive: true,
-				// title: { text: "Time chart", display: true },
 				plugins: {
+					title: {
+						display: false,
+						text: "Projects",
+						color: "#6f42c1",
+					},
 					tooltip: {
 						enabled: true,
 						callbacks: {

@@ -79,9 +79,10 @@ const TaskTimer = ({
 								Close
 							</button>
 							<button
+								className="break-timer-button"
 								onClick={() => {
 									setIsRunning(true);
-									setSeconds(6);
+									setSeconds(300);
 									setRenderReadyTimer(false);
 									setRunBreakTimer(true);
 									setSelectedTodo({
@@ -92,9 +93,10 @@ const TaskTimer = ({
 								5 minutes break
 							</button>
 							<button
+								className="break-timer-button"
 								onClick={() => {
 									setIsRunning(true);
-									setSeconds(8);
+									setSeconds(1200);
 									setRenderReadyTimer(false);
 									setRunBreakTimer(true);
 									setSelectedTodo({

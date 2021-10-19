@@ -2,6 +2,10 @@
 
 .single-task-area {
 	color: white;
+	// border: 1px solid green;
+	background-color: rgba(255, 255, 255, 0.253);
+	border-radius: 10px;
+	margin: 1rem 0;
 }
 
 .todo {
@@ -9,6 +13,7 @@
 	align-items: center;
 	justify-content: flex-start;
 	padding: 0.5rem;
+	// border: 1px solid blue;
 }
 
 .todo-bullet {
@@ -28,8 +33,9 @@
 .todo-text {
 	span {
 		display: inline-block;
-		margin: 0 1rem;
-		font-size: 2rem;
+		margin: 0.5rem 1rem;
+		font-size: 1.5rem;
+
 		&:hover {
 			cursor: pointer;
 		}
@@ -38,6 +44,8 @@
 
 .total-time {
 	padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
 }
 
 .buttons {
@@ -47,7 +55,7 @@
 .fa-times {
 	height: 100%;
 	font-size: 1rem;
-	color: $dark-pink;
+	color: #cd5fdb;
 	margin: 0 1rem;
 
 	&:hover {
@@ -58,7 +66,7 @@
 .fa-pencil {
 	height: 100%;
 	font-size: 1rem;
-	color: $dark-pink;
+	color: #cd5fdb;
 	margin: 0 0 0 0.5rem;
 
 	&:hover {
@@ -129,5 +137,18 @@
 		&:hover {
 			cursor: pointer;
 		}
+	}
+}
+
+.project {
+	background-color: $light-pink;
+	margin: 0 1rem;
+	padding: 0.5rem 1rem;
+	min-width: 70px;
+	border-radius: 5px;
+	text-align: center;
+
+	.project-text {
+		color: #cd5fdb;
 	}
 }

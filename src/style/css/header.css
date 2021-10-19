@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
 header {
   grid-area: header;
+  min-height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,6 +31,15 @@ header a {
 }
 
 header a:hover {
+  text-decoration: underline;
+}
+
+header button {
+  border: none;
+  background-color: transparent;
+}
+
+header button:hover {
   text-decoration: underline;
 }
 /*# sourceMappingURL=Header.css.map */

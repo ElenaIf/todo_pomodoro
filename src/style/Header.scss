@@ -4,6 +4,7 @@
 
 header {
 	grid-area: header;
+	min-height: 50px;
 	display: flex;
 	align-items: center;
 	background: rgb(34, 162, 242);
@@ -28,6 +29,14 @@ header {
 		text-decoration: none;
 		color: white;
 
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	button {
+		border: none;
+		background-color: transparent;
 		&:hover {
 			text-decoration: underline;
 		}

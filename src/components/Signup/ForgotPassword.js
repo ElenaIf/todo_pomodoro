@@ -29,18 +29,17 @@ const ForgotPassword = () => {
 
 	return (
 		<Container className="d-flex flex-column align-items-center justify-content-center">
-			<Card>
+			<Card className="login-card">
 				<Card.Body>
 					<h2 className="text-center mb-4">Reset Password</h2>
-
 					{error && <Alert variant="danger">{error}</Alert>}
 					{message && <Alert variant="success">{message}</Alert>}
 					<Form onSubmit={handleSubmit}>
-						<Form.Group id="email">
+						<Form.Group id="email" className="mb-2">
 							<Form.Label>Email</Form.Label>
 							<Form.Control type="email" ref={emailRef} required />
 						</Form.Group>
-						<Button disabled={loading} className="w-100" type="submit">
+						<Button disabled={loading} className="w-100 mt-2 login-button" type="submit">
 							Reset password
 						</Button>
 					</Form>

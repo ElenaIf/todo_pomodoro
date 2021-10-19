@@ -1,5 +1,6 @@
 .container-todo-app {
 	height: 100%;
+	// border: 1px solid red;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 30vh 1fr;
@@ -7,4 +8,19 @@
 	grid-template-areas:
 		"task-input task-input task-input"
 		"tasks-area tasks-area pie-area";
+}
+
+.pie-area {
+	grid-area: pie-area;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	.individual-pie {
+		max-height: 350px;
+		max-width: 350px;
+		margin-bottom: 2rem;
+	}
 }

@@ -134,8 +134,8 @@
 	color: white;
 	background-color: transparent;
 	font-size: 1.5rem;
-	// margin: 5vh 0 0 0;
-	padding: 0.7rem;
+	margin-bottom: 0.5rem;
+	padding: 0.4rem 0.7rem;
 
 	&:hover {
 		cursor: pointer;
@@ -149,4 +149,14 @@
 	flex-direction: column;
 	margin: 2rem;
 	line-height: 1.5rem;
+}
+
+.break-timer-button {
+	border: none;
+	padding: 0.5rem 0 0 0;
+	background-color: transparent;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }

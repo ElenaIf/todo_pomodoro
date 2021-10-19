@@ -21,22 +21,10 @@ const TaskList = ({
 	loading,
 	chosenProject,
 }) => {
-	const filterProjects = (project) => {
-		todosArray
-			.filter((todo) => {
-				return todo.hashtag.toLowerCase().indexOf(project.toLowerCase()) >= 0;
-			})
-			.map((todo) => {
-				return console.log(todo.title);
-			});
-	};
-
 	return (
 		<div className="tasks-area">
 			<div className="tasks">
-				{loading === true && !todosArray && (
-					<Spinner className="spinner" animation="border" variant="warning" />
-				)}
+				{loading === true && <Spinner className="spinner" animation="border" variant="warning" />}
 				{todosArray
 					.filter((todo) => {
 						if (

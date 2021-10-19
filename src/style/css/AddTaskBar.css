@@ -11,6 +11,11 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
 }
 
 .task-input form {
@@ -31,6 +36,7 @@
   width: 93%;
   height: 30%;
   max-height: 100px;
+  min-height: 50px;
   margin: 0 0.5rem 0 40px;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 10px;
@@ -84,6 +90,7 @@
   margin: 0 2rem 0 0.5rem;
   height: 30%;
   max-height: 100px;
+  min-height: 50px;
   padding: 0 2rem;
   border: none;
   border-radius: 10px;
@@ -102,5 +109,47 @@
   -webkit-box-shadow: 0 1px 5px 2px #edc9f2;
           box-shadow: 0 1px 5px 2px #edc9f2;
   background-color: #22a2f2c8;
+}
+
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 0 1rem 0 40px;
+}
+
+.projects .single-projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.projects .project-div {
+  background-color: #cd5fdb;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.3rem;
+  cursor: pointer;
+  min-width: 50px;
+  text-align: center;
+}
+
+.projects .project-div:hover {
+  -webkit-box-shadow: 0 1px 5px 2px #edc9f2;
+          box-shadow: 0 1px 5px 2px #edc9f2;
+}
+
+.projects .project-div-cancel {
+  background-color: #cd5fdb;
 }
 /*# sourceMappingURL=AddTaskBar.css.map */

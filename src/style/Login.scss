@@ -1,0 +1,14 @@
+@import "./variables";
+
+.login-card {
+	background-color: rgba(255, 255, 255, 0.397);
+	border-radius: 10px;
+}
+
+.login-button {
+	background-color: $purple;
+	border: 1px solid $purple;
+	&:hover {
+		background-color: $dark-blue;
+	}
+}

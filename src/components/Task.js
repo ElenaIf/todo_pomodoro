@@ -86,27 +86,31 @@ const Task = ({
 						}}
 					></i>
 				</div>
-				<div className="hashtags">
+				{/* 		<div className="hashtags">
 					{todo.hashtags.map((tag) => {
 						return <div key={Math.random()}>{tag} </div>;
 					})}
-				</div>
-				<div className="project">{todo.hashtag && <span>Project: {todo.hashtag}</span>}</div>
+				</div> */}
 			</div>
 			<div className="total-time">
-				Total time spent: {`${watchHours}:${watchMinutes}:${watchSeconds}`}{" "}
-				<button
-					className="timer-button"
-					onClick={() => {
-						setshowSecondTimer(true);
-						setIsRunning(true);
-						setSeconds(timer);
-						setRenderReadyTimer(false);
-						setSelectedTodo(todo);
-					}}
-				>
-					Start timer
-				</button>
+				<div>
+					Total time spent: {`${watchHours}:${watchMinutes}:${watchSeconds}`}{" "}
+					<button
+						className="timer-button"
+						onClick={() => {
+							setshowSecondTimer(true);
+							setIsRunning(true);
+							setSeconds(timer);
+							setRenderReadyTimer(false);
+							setSelectedTodo(todo);
+						}}
+					>
+						Start timer
+					</button>
+				</div>
+				<div className="project">
+					{todo.hashtag && <span className="project-text">{todo.hashtag}</span>}
+				</div>
 			</div>
 		</div>
 	);

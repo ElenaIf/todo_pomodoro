@@ -36,6 +36,7 @@ const App = () => {
 			setLoading(false);
 		} catch (err) {
 			console.log(err);
+			setLoading(false);
 		}
 	};
 
@@ -44,7 +45,7 @@ const App = () => {
 	const [isRunning, setIsRunning] = useState(false);
 	const [selectedTodo, setSelectedTodo] = useState({});
 	const [seconds, setSeconds] = useState(null);
-	const [timer, setTimer] = useState(5);
+	const [timer, setTimer] = useState(1500);
 	const [renderReadyTimer, setRenderReadyTimer] = useState(false);
 
 	const getRandomColor = () => {

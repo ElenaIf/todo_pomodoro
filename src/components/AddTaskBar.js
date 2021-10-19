@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "../style/css/AddTaskBar.css";
 
-const AddTaskBar = ({ addTodo, todosArray, setChosenProject }) => {
+const AddTaskBar = ({ addTodo, todosArray, setChosenProject, projectArray, chosenProject }) => {
 	const [todoText, setTodoText] = useState("");
 
 	const submitNewTask = (event) => {
@@ -16,21 +16,6 @@ const AddTaskBar = ({ addTodo, todosArray, setChosenProject }) => {
 		setTodoText(event.target.value);
 	};
 
-	let projectArray = [];
-
-	if (todosArray !== undefined) {
-		todosArray.forEach((element) => {
-			if (element.hashtag !== null) {
-				projectArray.push(element.hashtag);
-				console.log(element.hashtag);
-			}
-			projectArray = Array.from(new Set(projectArray));
-			return projectArray;
-		});
-	}
-
-	console.log(projectArray);
-
 	return (
 		<div className="task-input">
 			<form onSubmit={(event) => submitNewTask(event)}>
@@ -43,30 +28,36 @@ const AddTaskBar = ({ addTodo, todosArray, setChosenProject }) => {
 					}}
 				/>
 				<button type="submit">Add</button>
-				<div className="projects">
-					{projectArray.map((project) => {
-						return (
-							<div
-								onClick={() => {
-									console.log("project is: ", project);
-									setChosenProject(project);
-									console.log(todosArray);
-								}}
-							>
-								{project}
-							</div>
-						);
-					})}
-
+			</form>
+			<div className="projects">
+				{projectArray && projectArray.length > 0 && <div>Project filter: </div>}
+				<div className="single-projects">
+					{projectArray &&
+						projectArray.length > 0 &&
+						projectArray.map((project) => {
+							return (
+								<div
+									className="project-div"
+									onClick={() => {
+										setChosenProject(project);
+									}}
+								>
+									{project}
+								</div>
+							);
+						})}
+				</div>
+				{chosenProject && (
 					<div
+						className="project-div  project-div-cancel "
 						onClick={() => {
 							setChosenProject(null);
 						}}
 					>
 						Cancel
 					</div>
-				</div>
-			</form>
+				)}
+			</div>
 		</div>
 	);
 };
