@@ -34,8 +34,8 @@ const Main = ({
 	toggleTodoUnregistered,
 	addTodoUnregistered,
 	updateTodoUnregistered,
-	saveTimeIntoTodoUnregistered,
 	deleteTodoUnregistered,
+	loading,
 }) => {
 	const { currentUser } = useAuth();
 	return (
@@ -44,6 +44,7 @@ const Main = ({
 				{currentUser ? (
 					<Route exact path="/todo/">
 						<TodoApp
+							loading={loading}
 							todosArray={todosArray}
 							setTodosArray={setTodosArray}
 							toggleTodo={toggleTodo}

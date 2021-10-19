@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AddTaskBar from "../components/AddTaskBar";
 import TaskList from "../components/TaskList";
@@ -20,9 +20,15 @@ const ToDoAppUnregistered = ({
 	setSelectedTodo,
 	setSeconds,
 }) => {
+	const [chosenProject, setChosenProject] = useState(null);
 	return (
 		<div className="container-todo-app">
-			<AddTaskBar addTodo={addTodo} />
+			<AddTaskBar
+				addTodo={addTodo}
+				todosArray={todosArray}
+				setTodosArray={setTodosArray}
+				setChosenProject={setChosenProject}
+			/>
 			<TaskList
 				todosArray={todosArray}
 				toggleTodo={toggleTodo}
@@ -35,6 +41,7 @@ const ToDoAppUnregistered = ({
 				setRenderReadyTimer={setRenderReadyTimer}
 				setSelectedTodo={setSelectedTodo}
 				setSeconds={setSeconds}
+				chosenProject={chosenProject}
 			/>
 			<PieChart todosArray={todosArray} setTodosArray={setTodosArray} />
 		</div>

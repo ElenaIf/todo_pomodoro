@@ -16,10 +16,12 @@ const TaskTimer = ({
 	renderReadyTimer,
 	setRenderReadyTimer,
 	selectedTodo,
+	setSelectedTodo,
 	setshowSecondTimer,
 	saveTimeIntoTodoUnregistered,
 }) => {
 	const [newTimeTodo, setnewTimeTodo] = useState(selectedTodo.timeSpent);
+	const [runBreakTimer, setRunBreakTimer] = useState(false);
 	const { currentUser } = useAuth();
 
 	let totalTime;
@@ -38,15 +40,17 @@ const TaskTimer = ({
 	}, [isRunning]);
 
 	useEffect(() => {
-		if (seconds === 0 && currentUser) {
+		if (seconds === 0 && !runBreakTimer) {
 			setRenderReadyTimer(true);
 			totalTime = newTimeTodo + (timer - seconds);
-			saveTimeIntoTodo(selectedTodo, totalTime);
+			if (currentUser) {
+				saveTimeIntoTodo(selectedTodo, totalTime);
+			} else if (!currentUser) {
+				saveTimeIntoTodoUnregistered(selectedTodo, totalTime);
+			}
 			timerIsReadySound.play();
-		} else if (seconds === 0 && !currentUser) {
+		} else if (seconds === 0 && runBreakTimer) {
 			setRenderReadyTimer(true);
-			totalTime = newTimeTodo + (timer - seconds);
-			saveTimeIntoTodoUnregistered(selectedTodo, totalTime);
 			timerIsReadySound.play();
 		}
 	}, [seconds]);
@@ -59,25 +63,54 @@ const TaskTimer = ({
 	return (
 		<div className="timers">
 			{renderReadyTimer ? (
-				<div className="full-screen-timer-ready">
-					<div className="timer-round-div">
-						<div className="timer-text">Done</div>
-						<button
-							className="timer-close-button"
-							onClick={() => {
-								setIsRunning(false);
-								setRenderReadyTimer(false);
-								setshowSecondTimer(false);
-							}}
-						>
-							Close
-						</button>
+				<>
+					<div className="full-screen-timer-ready">
+						<div className="timer-round-div">
+							<div className="timer-text">Done</div>
+							<button
+								className="timer-close-button"
+								onClick={() => {
+									setIsRunning(false);
+									setRenderReadyTimer(false);
+									setshowSecondTimer(false);
+									setRunBreakTimer(false);
+								}}
+							>
+								Close
+							</button>
+							<button
+								onClick={() => {
+									setIsRunning(true);
+									setSeconds(6);
+									setRenderReadyTimer(false);
+									setRunBreakTimer(true);
+									setSelectedTodo({
+										title: "5 minutes break",
+									});
+								}}
+							>
+								5 minutes break
+							</button>
+							<button
+								onClick={() => {
+									setIsRunning(true);
+									setSeconds(8);
+									setRenderReadyTimer(false);
+									setRunBreakTimer(true);
+									setSelectedTodo({
+										title: "5 minutes break",
+									});
+								}}
+							>
+								20 minutes break
+							</button>
+						</div>
+						<div className="timer-task-name-area">
+							<h2>Timer ready for: </h2>
+							<h2>{selectedTodo.title}</h2>
+						</div>
 					</div>
-					<div className="timer-task-name-area">
-						<h2>Timer ready for: </h2>
-						<h2>{selectedTodo.title}</h2>
-					</div>
-				</div>
+				</>
 			) : (
 				<div className="full-screen-timer">
 					<div className="timer-round-div">
@@ -100,6 +133,7 @@ const TaskTimer = ({
 						>
 							Stop
 						</button>
+						{/* these spans are for making circle waves when times is counting */}
 						<span></span>
 						<span></span>
 						<span></span>

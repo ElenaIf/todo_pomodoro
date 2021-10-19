@@ -61,7 +61,7 @@ const Task = ({
 		<div className="single-task-area">
 			<div className="todo">
 				<div className="todo-bullet"></div>
-				<div className="todo-text" key={todo.id}>
+				<div className="todo-text">
 					<span
 						onClick={() => {
 							toggleTodo(todo);
@@ -86,6 +86,12 @@ const Task = ({
 						}}
 					></i>
 				</div>
+				<div className="hashtags">
+					{todo.hashtags.map((tag) => {
+						return <div key={Math.random()}>{tag} </div>;
+					})}
+				</div>
+				<div className="project">{todo.hashtag && <span>Project: {todo.hashtag}</span>}</div>
 			</div>
 			<div className="total-time">
 				Total time spent: {`${watchHours}:${watchMinutes}:${watchSeconds}`}{" "}

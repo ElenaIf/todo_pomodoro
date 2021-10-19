@@ -15,28 +15,11 @@ const postURL = "https://todo-pomodoro-backend.herokuapp.com/notes/add";
 const deleteURL = "https://todo-pomodoro-backend.herokuapp.com/notes/delete";
 const editURL = "https://todo-pomodoro-backend.herokuapp.com/notes/edit";
 
-const initialTodos = [
-	{
-		id: 1,
-		title: "Finish doing my homework",
-		done: true,
-		timeSpent: 50,
-		color: "hsl(299, 36%, 55%)",
-		hashtag: "home",
-	},
-	{
-		id: 2,
-		title: "Clean at home",
-		done: false,
-		timeSpent: 110,
-		color: "hsl(283, 24%, 88%)",
-		hashtag: "work",
-	},
-];
-
 const App = () => {
 	const [todosArray, setTodosArray] = useState([]);
-	const [todosArrayUnregistered, setTodosArrayUnregistered] = useState(initialTodos);
+	const [todosArrayUnregistered, setTodosArrayUnregistered] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [updateList, setUpdateList] = useState(true);
 
 	const { currentUser } = useAuth();
 
@@ -50,19 +33,16 @@ const App = () => {
 		try {
 			const resp = await axios.get(`${baseURL}/${currentUser.uid}`);
 			setTodosArray(resp.data);
+			setLoading(false);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	useEffect(() => {
-		getNotes();
-	}, [userid]);
-
 	// to render the timer on the screen
 	const [showSecondTimer, setshowSecondTimer] = useState(false);
 	const [isRunning, setIsRunning] = useState(false);
-	const [selectedTodo, setSelectedTodo] = useState("");
+	const [selectedTodo, setSelectedTodo] = useState({});
 	const [seconds, setSeconds] = useState(null);
 	const [timer, setTimer] = useState(5);
 	const [renderReadyTimer, setRenderReadyTimer] = useState(false);
@@ -101,30 +81,88 @@ const App = () => {
 	};
 
 	const addTodo = (todoText) => {
-		if (todoText !== "") {
-			const newTodo = {
-				title: todoText,
-				done: false,
-				timeSpent: 0,
-				color: newColor,
-				userid: currentUser.uid,
-				hashtag: "work",
-			};
-			axios.post(postURL, newTodo).then(setTodosArray([newTodo, ...todosArray]));
+		//find in the input some word with # sign and make it string instead of array.
+		let inputHashtag = todoText.match(/(?<=[\s>]|^)#(\w*[A-Za-z_]+\w*)\b(?!;)/gi);
+
+		let newTodoText = todoText; // to keep the original in store
+
+		if (inputHashtag) {
+			inputHashtag.forEach((element) => {
+				newTodoText = newTodoText.replace(element + " ", "");
+				newTodoText = newTodoText.replace(" " + element, "");
+			});
 		}
+
+		if (todoText !== "") {
+			let newTodo;
+			if (inputHashtag) {
+				let project = inputHashtag.slice(0, 1).join().substring(1);
+				newTodo = {
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					done: false,
+					timeSpent: 0,
+					color: newColor,
+					userid: currentUser.uid,
+					hashtag: project,
+					hashtags: inputHashtag.slice(1, inputHashtag.length),
+				};
+				axios.post(postURL, newTodo).then(getNotes());
+			} else {
+				newTodo = {
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					done: false,
+					timeSpent: 0,
+					color: newColor,
+					userid: currentUser.uid,
+					hashtag: "none",
+					hashtags: [],
+				};
+				axios.post(postURL, newTodo).then(getNotes());
+			}
+
+			// .then(setTodosArray([newTodo, ...todosArray]));
+		}
+
+		getNotes();
 	};
 
 	const addTodoUnregistered = (todoText) => {
-		if (todoText !== "") {
-			const newTodo = {
-				id: Date.now(),
-				title: todoText,
-				done: false,
-				timeSpent: 0,
-				color: newColor,
-				hashtag: "work",
-			};
+		//find in the input some word with # sign and make it string instead of array.
+		let inputHashtag = todoText.match(/(?<=[\s>]|^)#(\w*[A-Za-z_]+\w*)\b(?!;)/gi);
 
+		let newTodoText = todoText; // to keep the original in store
+
+		if (inputHashtag) {
+			inputHashtag.forEach((element) => {
+				newTodoText = newTodoText.replace(element + " ", "");
+				newTodoText = newTodoText.replace(" " + element, "");
+			});
+		}
+
+		if (todoText !== "") {
+			let newTodo;
+			if (inputHashtag) {
+				let project = inputHashtag.slice(0, 1).join().substring(1);
+				newTodo = {
+					id: Date.now(),
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					done: false,
+					timeSpent: 0,
+					color: newColor,
+					hashtag: project,
+					hashtags: inputHashtag.slice(1, inputHashtag.length),
+				};
+			} else {
+				newTodo = {
+					id: Date.now(),
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					done: false,
+					timeSpent: 0,
+					color: newColor,
+					hashtag: "none",
+					hashtags: [],
+				};
+			}
 			setTodosArrayUnregistered([newTodo, ...todosArrayUnregistered]);
 		}
 	};
@@ -177,7 +215,6 @@ const App = () => {
 
 	const deleteTodo = (todo) => {
 		const filteredTasks = [...todosArray.filter((task) => task.id !== todo.id)];
-
 		axios.delete(`${deleteURL}/${todo.id}`).then(setTodosArray(filteredTasks));
 	};
 
@@ -186,12 +223,17 @@ const App = () => {
 		setTodosArrayUnregistered(filteredTasks);
 	};
 
+	useEffect(() => {
+		getNotes();
+	}, [userid, updateList]);
+
 	return (
 		<>
 			{showSecondTimer === false ? (
 				<Router>
 					<Header />
 					<Main
+						loading={loading}
 						todosArray={todosArray}
 						toggleTodo={toggleTodo}
 						setTodosArray={setTodosArray}
@@ -221,6 +263,7 @@ const App = () => {
 					isRunning={isRunning}
 					setIsRunning={setIsRunning}
 					selectedTodo={selectedTodo}
+					setSelectedTodo={setSelectedTodo}
 					seconds={seconds}
 					setSeconds={setSeconds}
 					timer={timer}

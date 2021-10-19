@@ -46,8 +46,30 @@ const PieChart = ({ setTodosArray, todosArray }) => {
 				data={chartData}
 				options={{
 					responsive: true,
-					title: { text: "Time chart", display: false },
+					// title: { text: "Time chart", display: true },
 					plugins: {
+						tooltip: {
+							enabled: true,
+							callbacks: {
+								label: function (tooltipItems) {
+									let chartHours = Math.floor(tooltipItems.raw / 3600)
+										.toString()
+										.padStart(2, "0");
+
+									let chartMinutes = Math.floor(
+										(tooltipItems.raw - Math.floor(tooltipItems.raw / 3600) * 3600) / 60
+									)
+										.toString()
+										.padStart(2, "0");
+
+									let chartSeconds = (tooltipItems.raw - Math.floor(tooltipItems.raw / 60) * 60)
+										.toString()
+										.padStart(2, "0");
+
+									return ` ${tooltipItems.label} - ${chartHours}:${chartMinutes}:${chartSeconds}`;
+								},
+							},
+						},
 						legend: {
 							display: false,
 						},
