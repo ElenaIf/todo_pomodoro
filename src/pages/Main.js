@@ -35,7 +35,9 @@ const Main = ({
 	addTodoUnregistered,
 	updateTodoUnregistered,
 	deleteTodoUnregistered,
-	loading,
+	downloadingTasks,
+	deleteProjectUnregistered,
+	deleteProject,
 }) => {
 	const { currentUser } = useAuth();
 	return (
@@ -44,7 +46,7 @@ const Main = ({
 				{currentUser ? (
 					<Route exact path="/todo/">
 						<TodoApp
-							loading={loading}
+							downloadingTasks={downloadingTasks}
 							todosArray={todosArray}
 							setTodosArray={setTodosArray}
 							toggleTodo={toggleTodo}
@@ -57,6 +59,7 @@ const Main = ({
 							setRenderReadyTimer={setRenderReadyTimer}
 							setSelectedTodo={setSelectedTodo}
 							setSeconds={setSeconds}
+							deleteProject={deleteProject}
 						/>
 					</Route>
 				) : (
@@ -74,6 +77,7 @@ const Main = ({
 							setRenderReadyTimer={setRenderReadyTimer}
 							setSelectedTodo={setSelectedTodo}
 							setSeconds={setSeconds}
+							deleteProject={deleteProjectUnregistered}
 						/>
 					</Route>
 				)}

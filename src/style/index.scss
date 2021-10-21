@@ -14,7 +14,7 @@ body {
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
-	background-attachment: fixed;
+	background-attachment: fixed; // image doesn't move when scroll
 }
 
 #root {
@@ -23,7 +23,7 @@ body {
 		"header"
 		"main"
 		"footer";
-	grid-template-rows: 4rem 1fr 5rem;
+	grid-template-rows: 4rem 1fr 4rem;
 	grid-template-columns: 1fr;
 	height: 100%;
 	width: 100%;

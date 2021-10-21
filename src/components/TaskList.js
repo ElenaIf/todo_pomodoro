@@ -18,13 +18,16 @@ const TaskList = ({
 	setRenderReadyTimer,
 	setSelectedTodo,
 	setSeconds,
-	loading,
+	downloadingTasks,
 	chosenProject,
+	deleteProject,
 }) => {
 	return (
 		<div className="tasks-area">
 			<div className="tasks">
-				{loading === true && <Spinner className="spinner" animation="border" variant="warning" />}
+				{downloadingTasks === true && (
+					<Spinner className="spinner" animation="border" variant="warning" />
+				)}
 				{todosArray
 					.filter((todo) => {
 						if (
@@ -52,6 +55,7 @@ const TaskList = ({
 							setRenderReadyTimer={setRenderReadyTimer}
 							setSelectedTodo={setSelectedTodo}
 							setSeconds={setSeconds}
+							deleteProject={deleteProject}
 						/>
 					))}
 			</div>

@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&family=Open+Sans+Condensed:wght@300&display=swap");
+/* Does not work without viewport in html */
+@media (max-width: 576px) {
+  #logo {
+    max-height: 50px;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+  }
+  header .hidden-button {
+    visibility: visible;
+  }
+  .container-todo-app {
+    height: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 30vh min-content min-content;
+        grid-template-rows: 30vh -webkit-min-content -webkit-min-content;
+        grid-template-rows: 30vh min-content min-content;
+    gap: 0px 0px;
+        grid-template-areas: "task-input task-input" "tasks-area tasks-area" "pie-area pie-area";
+  }
+  .todo-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .todo-text span {
+    font-size: 1rem;
+    display: inline;
+  }
+  .todo-text i {
+    display: inline;
+  }
+  #mobileButton {
+    margin: 1rem 40px;
+    display: block;
+    background-color: transparent;
+    border: solid 1px white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0.2rem 0.3rem;
+    line-height: 0.2rem;
+  }
+  #mobileButton:active {
+    border: none;
+    text-decoration: none;
+  }
+  #mobileButton:visited {
+    border: none;
+    text-decoration: none;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li {
+    display: block;
+  }
+  nav ul li a {
+    display: block;
+    padding: 0.5rem 2rem;
+  }
+  nav.responsive ul {
+    z-index: 10;
+    border: none;
+    display: block;
+    background: #22a2f2;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #22a2f2), color-stop(80%, #38a8f2));
+    background: linear-gradient(0deg, #22a2f2 20%, #38a8f2 80%);
+    -webkit-box-shadow: -10px 10px 10px 10px #22a2f2;
+            box-shadow: -10px 10px 10px 10px #22a2f2;
+    position: absolute;
+    width: 100%;
+    min-height: 100px;
+    top: 0;
+    left: -20px;
+    text-align: center;
+  }
+  .projects {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+/*# sourceMappingURL=Mobile.css.map */

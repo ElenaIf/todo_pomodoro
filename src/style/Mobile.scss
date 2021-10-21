@@ -1,0 +1,93 @@
+@import "./_variables";
+
+/* Does not work without viewport in html */
+@media (max-width: 576px) {
+	#logo {
+		max-height: 50px;
+		margin-right: 2rem;
+		margin-top: 0.5rem;
+	}
+
+	header {
+		.hidden-button {
+			visibility: visible;
+		}
+	}
+
+	.container-todo-app {
+		height: 100%;
+		// border: 1px solid red;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 30vh min-content min-content;
+		gap: 0px 0px;
+		grid-template-areas:
+			"task-input task-input"
+			"tasks-area tasks-area"
+			"pie-area pie-area";
+	}
+
+	.todo-text {
+		display: flex;
+		span {
+			font-size: 1rem;
+			display: inline;
+		}
+		i {
+			display: inline;
+		}
+	}
+
+	#mobileButton {
+		margin: 1rem 40px;
+		display: block;
+		background-color: transparent;
+		border: solid 1px white;
+		border-radius: 5px;
+		text-decoration: none;
+		padding: 0.2rem 0.3rem;
+		line-height: 0.2rem;
+
+		&:active {
+			border: none;
+			text-decoration: none;
+		}
+
+		&:visited {
+			border: none;
+			text-decoration: none;
+		}
+	}
+
+	nav {
+		ul {
+			display: none;
+			li {
+				display: block;
+				a {
+					display: block;
+					padding: 0.5rem 2rem;
+				}
+			}
+		}
+	}
+
+	nav.responsive ul {
+		z-index: 10;
+		border: none;
+		display: block;
+		background: rgb(34, 162, 242);
+		background: linear-gradient(0deg, rgb(34, 162, 242) 20%, rgb(56, 168, 242) 80%);
+		box-shadow: -10px 10px 10px 10px rgb(34, 162, 242);
+		position: absolute;
+		width: 100%;
+		min-height: 100px;
+		top: 0;
+		left: -20px;
+		text-align: center;
+	}
+
+	.projects {
+		flex-wrap: wrap;
+	}
+}

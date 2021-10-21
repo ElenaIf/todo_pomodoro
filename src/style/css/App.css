@@ -1,1 +1,52 @@
-/* No CSS *//*# sourceMappingURL=App.css.map */
+#circle1 {
+  background-image: url("/src/assets/images/CircleBlur.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  z-index: -1;
+  top: 25%;
+  left: 20%;
+  position: absolute;
+  -webkit-animation-name: circle-1;
+          animation-name: circle-1;
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+@-webkit-keyframes circle-1 {
+  0% {
+    top: 900px;
+    left: 20%;
+  }
+  50% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  100% {
+    top: 25%;
+    left: 20%;
+  }
+}
+
+@keyframes circle-1 {
+  0% {
+    top: 900px;
+    left: 20%;
+  }
+  50% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  100% {
+    top: 25%;
+    left: 20%;
+  }
+}
+/*# sourceMappingURL=App.css.map */

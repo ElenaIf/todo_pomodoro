@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 
+import "./style/css/App.css";
+
 import axios from "axios";
 
 import Header from "./components/Header";
@@ -18,7 +20,7 @@ const editURL = "https://todo-pomodoro-backend.herokuapp.com/notes/edit";
 const App = () => {
 	const [todosArray, setTodosArray] = useState([]);
 	const [todosArrayUnregistered, setTodosArrayUnregistered] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [downloadingTasks, setDownloadingTasks] = useState(true);
 	const [updateList, setUpdateList] = useState(true);
 
 	const { currentUser } = useAuth();
@@ -33,10 +35,8 @@ const App = () => {
 		try {
 			const resp = await axios.get(`${baseURL}/${currentUser.uid}`);
 			setTodosArray(resp.data);
-			setLoading(false);
 		} catch (err) {
 			console.log(err);
-			setLoading(false);
 		}
 	};
 
@@ -115,7 +115,7 @@ const App = () => {
 					timeSpent: 0,
 					color: newColor,
 					userid: currentUser.uid,
-					hashtag: "none",
+					hashtag: "No project",
 					hashtags: [],
 				};
 				axios.post(postURL, newTodo).then(getNotes());
@@ -160,7 +160,7 @@ const App = () => {
 					done: false,
 					timeSpent: 0,
 					color: newColor,
-					hashtag: "none",
+					hashtag: "No Project",
 					hashtags: [],
 				};
 			}
@@ -169,25 +169,103 @@ const App = () => {
 	};
 
 	const updateTodo = (todo, newValue) => {
-		const updatedTasks = todosArray.map((t) => {
-			return t.id === todo.id ? { ...t, title: newValue } : t;
-		});
-		const newItem = {
-			title: newValue,
-			done: todo.done,
-			timeSpent: todo.timeSpent,
-			userid: todo.userid,
-			hashtag: todo.hashtag,
-		};
+		let inputHashtag = newValue.match(/(?<=[\s>]|^)#(\w*[A-Za-z_]+\w*)\b(?!;)/gi);
+
+		let newTodoText = newValue;
+
+		if (inputHashtag) {
+			inputHashtag.forEach((element) => {
+				newTodoText = newTodoText.replace(element + " ", "");
+				newTodoText = newTodoText.replace(" " + element, "");
+			});
+		}
+
+		let updatedTasks = [];
+		let newItem = {};
+
+		if (inputHashtag) {
+			let project = inputHashtag.slice(0, 1).join().substring(1);
+
+			updatedTasks = todosArray.map((t) => {
+				return t.id === todo.id
+					? {
+							...t,
+							title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+							hashtag: project,
+							hashtags: inputHashtag.slice(1, inputHashtag.length),
+					  }
+					: t;
+			});
+			newItem = {
+				title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+				done: todo.done,
+				timeSpent: todo.timeSpent,
+				userid: todo.userid,
+				hashtag: project,
+				hashtags: inputHashtag.slice(1, inputHashtag.length),
+			};
+		} else {
+			updatedTasks = todosArray.map((t) => {
+				return t.id === todo.id
+					? {
+							...t,
+							title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					  }
+					: t;
+			});
+			newItem = {
+				title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+				done: todo.done,
+				timeSpent: todo.timeSpent,
+				userid: todo.userid,
+				hashtag: todo.hashtag,
+			};
+		}
+
 		if (newValue !== "") {
 			axios.put(`${editURL}/${todo.id}`, newItem).then(setTodosArray(updatedTasks));
 		}
 	};
 
 	const updateTodoUnregistered = (todo, newValue) => {
-		const updatedTasks = todosArrayUnregistered.map((t) => {
-			return t.id === todo.id ? { ...t, title: newValue } : t;
-		});
+		//find in the input some word with # sign and make it string instead of array.
+		let inputHashtag = newValue.match(/(?<=[\s>]|^)#(\w*[A-Za-z_]+\w*)\b(?!;)/gi);
+
+		let newTodoText = newValue; // to keep the original in store
+
+		if (inputHashtag) {
+			inputHashtag.forEach((element) => {
+				newTodoText = newTodoText.replace(element + " ", "");
+				newTodoText = newTodoText.replace(" " + element, "");
+			});
+		}
+
+		let updatedTasks = [];
+
+		if (inputHashtag) {
+			let project = inputHashtag.slice(0, 1).join().substring(1);
+
+			updatedTasks = todosArrayUnregistered.map((t) => {
+				return t.id === todo.id
+					? {
+							...t,
+							title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+							hashtag: project,
+							hashtags: inputHashtag.slice(1, inputHashtag.length),
+					  }
+					: t;
+			});
+		} else {
+			updatedTasks = todosArrayUnregistered.map((t) => {
+				return t.id === todo.id
+					? {
+							...t,
+							title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					  }
+					: t;
+			});
+		}
+
 		setTodosArrayUnregistered(updatedTasks);
 	};
 
@@ -214,6 +292,32 @@ const App = () => {
 		setTodosArrayUnregistered(updatedTasks);
 	};
 
+	const deleteProject = (todo) => {
+		const updatedTasks = todosArray.map((t) => {
+			return t.id === todo.id ? { ...t, hashtag: "No Project" } : t;
+		});
+
+		const newItem = {
+			title: todo.title,
+			done: todo.done,
+			timeSpent: todo.timeSpent,
+			userid: todo.userid,
+			hashtag: "No Project",
+		};
+
+		axios.put(`${editURL}/${todo.id}`, newItem).then(setTodosArray(updatedTasks));
+		console.log(todo.hashtag);
+	};
+
+	const deleteProjectUnregistered = (todo) => {
+		const updatedTasks = todosArrayUnregistered.map((t) => {
+			return t.id === todo.id ? { ...t, hashtag: "No Project" } : t;
+		});
+
+		setTodosArrayUnregistered(updatedTasks);
+		console.log(todo.hashtag);
+	};
+
 	const deleteTodo = (todo) => {
 		const filteredTasks = [...todosArray.filter((task) => task.id !== todo.id)];
 		axios.delete(`${deleteURL}/${todo.id}`).then(setTodosArray(filteredTasks));
@@ -225,7 +329,7 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		getNotes();
+		getNotes().then(setDownloadingTasks(false));
 	}, [userid, updateList]);
 
 	return (
@@ -234,7 +338,7 @@ const App = () => {
 				<Router>
 					<Header />
 					<Main
-						loading={loading}
+						downloadingTasks={downloadingTasks}
 						todosArray={todosArray}
 						toggleTodo={toggleTodo}
 						setTodosArray={setTodosArray}
@@ -255,7 +359,10 @@ const App = () => {
 						updateTodoUnregistered={updateTodoUnregistered}
 						saveTimeIntoTodoUnregistered={saveTimeIntoTodoUnregistered}
 						deleteTodoUnregistered={deleteTodoUnregistered}
+						deleteProjectUnregistered={deleteProjectUnregistered}
+						deleteProject={deleteProject}
 					/>
+					<div id="circle1"></div>
 					<Footer />
 				</Router>
 			) : (

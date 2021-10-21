@@ -19,19 +19,18 @@ const About = () => {
 					write "Finish my homework #school", and your task will be automatically added into
 					"school" project
 				</p>
-				<p>
-					Technologies and tools used in this project are:
-					<ul>
-						<li>React (with context and function components with hooks)</li>
-						<li>PHP and Symfony</li>
-						<li>Sass</li>
-						<li>Bootstrap</li>
-						<li>Firebase</li>
-						<li>Photoshop</li>
-						<li>Heroku</li>
-						<li>Chart.js</li>
-					</ul>
-				</p>
+
+				<p>Technologies and tools used in this project are:</p>
+				<ul>
+					<li>React (with context and function components with hooks)</li>
+					<li>PHP and Symfony</li>
+					<li>SCSS</li>
+					<li>Bootstrap</li>
+					<li>Firebase</li>
+					<li>Photoshop</li>
+					<li>Heroku</li>
+					<li>Chart.js</li>
+				</ul>
 			</div>
 		</div>
 	);

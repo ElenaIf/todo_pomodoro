@@ -26,8 +26,8 @@ body {
   display: -ms-grid;
   display: grid;
       grid-template-areas: "header" "main" "footer";
-  -ms-grid-rows: 4rem 1fr 5rem;
-      grid-template-rows: 4rem 1fr 5rem;
+  -ms-grid-rows: 4rem 1fr 4rem;
+      grid-template-rows: 4rem 1fr 4rem;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   height: 100%;

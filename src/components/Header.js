@@ -5,10 +5,16 @@ import { useAuth } from "../contexts/AuthContext";
 
 import "../style/css/Header.css";
 
+import logo from "../assets/images/LenaLogo.png";
+
 const Header = () => {
+	const [open, setOpen] = useState(false);
 	const [error, setError] = useState("");
 	const { currentUser, logout } = useAuth();
 	const history = useHistory();
+	let links = document.querySelectorAll("nav ul li a");
+	let navigation = document.querySelector("nav");
+	let header = document.querySelector("header");
 
 	async function handleLogout() {
 		setError("");
@@ -22,23 +28,56 @@ const Header = () => {
 
 	return (
 		<header>
-			<nav>
+			<nav className={open ? "responsive" : ""}>
+				<button
+					className="hidden-button"
+					id="mobileButton"
+					onClick={() => {
+						setOpen(!open);
+					}}
+				>
+					<span className="material-icons">menu</span>
+				</button>
+
 				<ul>
 					<li>
-						<NavLink to="/todo/">Home</NavLink>
+						<NavLink
+							onClick={() => {
+								setOpen(false);
+							}}
+							to="/todo/"
+						>
+							Home
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/todo/about">About</NavLink>
+						<NavLink
+							onClick={() => {
+								setOpen(false);
+							}}
+							to="/todo/about"
+						>
+							About
+						</NavLink>
 					</li>
 					{currentUser ? (
-						<li>
-							<button className="" onClick={handleLogout}>
-								Logout
-							</button>
+						<li
+							onClick={() => {
+								setOpen(false);
+							}}
+						>
+							<button onClick={handleLogout}>Logout</button>
 						</li>
 					) : (
 						<li>
-							<NavLink to="/todo/login">Log in</NavLink>
+							<NavLink
+								onClick={() => {
+									setOpen(false);
+								}}
+								to="/todo/login"
+							>
+								Log in
+							</NavLink>
 						</li>
 					)}
 				</ul>
@@ -53,6 +92,9 @@ const Header = () => {
 					</li>
 				</ul>
 			)}
+			<Link to="/todo/">
+				<img src={logo} alt="Elena Ivankina logo" id="logo" />
+			</Link>
 		</header>
 	);
 };

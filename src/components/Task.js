@@ -13,6 +13,7 @@ const Task = ({
 	setRenderReadyTimer,
 	setSelectedTodo,
 	setSeconds,
+	deleteProject,
 }) => {
 	const [edit, setEdit] = useState(null);
 	const [newTodoText, setNewTodoText] = useState(todo.title);
@@ -69,22 +70,21 @@ const Task = ({
 						style={{ textDecoration: todo.done ? "line-through" : undefined }}
 					>
 						{todo.title}{" "}
+						<i
+							className="fa fa-pencil"
+							aria-hidden="true"
+							onClick={() => {
+								setEdit(todo);
+							}}
+						></i>
+						<i
+							className="fa fa-times"
+							aria-hidden="true"
+							onClick={() => {
+								deleteTodo(todo);
+							}}
+						></i>
 					</span>
-
-					<i
-						className="fa fa-pencil"
-						aria-hidden="true"
-						onClick={() => {
-							setEdit(todo);
-						}}
-					></i>
-					<i
-						className="fa fa-times"
-						aria-hidden="true"
-						onClick={() => {
-							deleteTodo(todo);
-						}}
-					></i>
 				</div>
 				{/* 		<div className="hashtags">
 					{todo.hashtags.map((tag) => {
@@ -105,11 +105,24 @@ const Task = ({
 							setSelectedTodo(todo);
 						}}
 					>
-						Start timer
+						Start Pomodoro timer (25 min)
 					</button>
 				</div>
 				<div className="project">
-					{todo.hashtag && <span className="project-text">{todo.hashtag}</span>}
+					{todo.hashtag && (
+						<>
+							<span className="project-text">{todo.hashtag}</span>
+							{todo.hashtag !== "No Project" && (
+								<i
+									className="fa fa-times"
+									aria-hidden="true"
+									onClick={() => {
+										deleteProject(todo);
+									}}
+								></i>
+							)}
+						</>
+					)}
 				</div>
 			</div>
 		</div>

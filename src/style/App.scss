@@ -1,0 +1,32 @@
+#circle1 {
+	background-image: url("/src/assets/images/CircleBlur.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	z-index: -1;
+	top: 25%;
+	left: 20%;
+	position: absolute;
+	animation-name: circle-1;
+	animation-duration: 15s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	transition: all 1s;
+}
+
+@keyframes circle-1 {
+	0% {
+		top: 900px;
+		left: 20%;
+	}
+
+	50% {
+		transform: rotate(90deg);
+	}
+
+	100% {
+		top: 25%;
+		left: 20%;
+	}
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "../style/css/AddTaskBar.css";
 
-const AddTaskBar = ({ addTodo, todosArray, setChosenProject, projectArray, chosenProject }) => {
+const AddTaskBar = ({ addTodo, setChosenProject, projectArray, chosenProject }) => {
 	const [todoText, setTodoText] = useState("");
 
 	const submitNewTask = (event) => {
@@ -21,7 +21,7 @@ const AddTaskBar = ({ addTodo, todosArray, setChosenProject, projectArray, chose
 			<form onSubmit={(event) => submitNewTask(event)}>
 				<input
 					name="todo"
-					placeholder="Add your task here"
+					placeholder="Add task here"
 					value={todoText}
 					onChange={(event) => {
 						onInputChange(event);
@@ -30,7 +30,7 @@ const AddTaskBar = ({ addTodo, todosArray, setChosenProject, projectArray, chose
 				<button type="submit">Add</button>
 			</form>
 			<div className="projects">
-				{projectArray && projectArray.length > 0 && <div>Project filter: </div>}
+				{projectArray && projectArray.length > 0 && <div>Project filter:</div>}
 				<div className="single-projects">
 					{projectArray &&
 						projectArray.length > 0 &&

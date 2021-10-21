@@ -21,6 +21,7 @@ const ToDoAppUnregistered = ({
 	setRenderReadyTimer,
 	setSelectedTodo,
 	setSeconds,
+	deleteProject,
 }) => {
 	const [chosenProject, setChosenProject] = useState(null);
 
@@ -30,7 +31,6 @@ const ToDoAppUnregistered = ({
 		todosArray.forEach((element) => {
 			if (element.hashtag !== null) {
 				projectArray.push(element.hashtag);
-				console.log(element.hashtag);
 			}
 			projectArray = Array.from(new Set(projectArray));
 			return projectArray;
@@ -59,6 +59,7 @@ const ToDoAppUnregistered = ({
 				setSelectedTodo={setSelectedTodo}
 				setSeconds={setSeconds}
 				chosenProject={chosenProject}
+				deleteProject={deleteProject}
 			/>
 			<div className="pie-area">
 				<div className="individual-pie">

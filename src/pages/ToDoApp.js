@@ -21,7 +21,8 @@ const TodoApp = ({
 	setRenderReadyTimer,
 	setSelectedTodo,
 	setSeconds,
-	loading,
+	downloadingTasks,
+	deleteProject,
 }) => {
 	const [chosenProject, setChosenProject] = useState(null);
 
@@ -31,7 +32,6 @@ const TodoApp = ({
 		todosArray.forEach((element) => {
 			if (element.hashtag !== null) {
 				projectArray.push(element.hashtag);
-				console.log(element.hashtag);
 			}
 			projectArray = Array.from(new Set(projectArray));
 			return projectArray;
@@ -48,7 +48,7 @@ const TodoApp = ({
 				chosenProject={chosenProject}
 			/>
 			<TaskList
-				loading={loading}
+				downloadingTasks={downloadingTasks}
 				todosArray={todosArray}
 				toggleTodo={toggleTodo}
 				updateTodo={updateTodo}
@@ -61,6 +61,7 @@ const TodoApp = ({
 				setSelectedTodo={setSelectedTodo}
 				setSeconds={setSeconds}
 				chosenProject={chosenProject}
+				deleteProject={deleteProject}
 			/>
 			<div className="pie-area">
 				<div className="individual-pie">

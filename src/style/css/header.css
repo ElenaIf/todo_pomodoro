@@ -8,6 +8,9 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background: #22a2f2;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(14%, #22a2f2), color-stop(98%, rgba(56, 189, 242, 0.158701)));
   background: linear-gradient(180deg, #22a2f2 14%, rgba(56, 189, 242, 0.158701) 98%);
@@ -16,7 +19,7 @@ header {
 }
 
 header ul {
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
 }
 
 header ul li {
@@ -41,5 +44,15 @@ header button {
 
 header button:hover {
   text-decoration: underline;
+}
+
+header .hidden-button {
+  visibility: hidden;
+}
+
+#logo {
+  max-height: 60px;
+  margin-right: 2rem;
+  margin-top: 1rem;
 }
 /*# sourceMappingURL=Header.css.map */
