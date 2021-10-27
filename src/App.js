@@ -37,6 +37,7 @@ const App = () => {
 			setTodosArray(resp.data);
 		} catch (err) {
 			console.log(err);
+			setDownloadingTasks(false);
 		}
 	};
 
