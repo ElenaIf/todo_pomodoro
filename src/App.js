@@ -21,7 +21,6 @@ const App = () => {
 	const [todosArray, setTodosArray] = useState([]);
 	const [todosArrayUnregistered, setTodosArrayUnregistered] = useState([]);
 	const [downloadingTasks, setDownloadingTasks] = useState(true);
-	const [updateList, setUpdateList] = useState(true);
 
 	const { currentUser } = useAuth();
 
@@ -34,18 +33,18 @@ const App = () => {
 	const getNotes = async () => {
 		try {
 			const resp = await axios.get(`${baseURL}/${currentUser.uid}`);
+			setDownloadingTasks(false);
 			setTodosArray(resp.data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	// to render the timer on the screen
-	const [showSecondTimer, setshowSecondTimer] = useState(false);
-	const [isRunning, setIsRunning] = useState(false);
+	const [showSecondTimer, setshowSecondTimer] = useState(false); // to render the timer on the screen
+	const [isRunning, setIsRunning] = useState(false); // to check if the timer is running
 	const [selectedTodo, setSelectedTodo] = useState({});
 	const [seconds, setSeconds] = useState(null);
-	const [timer, setTimer] = useState(1500);
+	const [timer, setTimer] = useState(1500); // set the timer for 25 minutes
 	const [renderReadyTimer, setRenderReadyTimer] = useState(false);
 
 	const getRandomColor = () => {
@@ -329,8 +328,8 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		getNotes().then(setDownloadingTasks(false));
-	}, [userid, updateList]);
+		getNotes();
+	}, [userid]);
 
 	return (
 		<>

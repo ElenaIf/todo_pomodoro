@@ -3,11 +3,15 @@
 @media (max-width: 576px) {
   #logo {
     max-height: 50px;
-    margin-right: 2rem;
+    margin-right: 1rem;
     margin-top: 0.5rem;
   }
   header .hidden-button {
     visibility: visible;
+  }
+  header ul {
+    margin: 0;
+    padding: 0;
   }
   .container-todo-app {
     height: 100%;
@@ -29,6 +33,7 @@
   .todo-text span {
     font-size: 1rem;
     display: inline;
+    margin: 0.5rem 1rem 0.5rem 0;
   }
   .todo-text i {
     display: inline;
@@ -74,12 +79,29 @@
     width: 100%;
     min-height: 100px;
     top: 0;
-    left: -20px;
+    left: 0;
     text-align: center;
   }
   .projects {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .project {
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+  }
+  .timer-button {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  .total-time {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .time-spent-text {
+    margin: 0 0 0 1rem;
   }
 }
 /*# sourceMappingURL=Mobile.css.map */

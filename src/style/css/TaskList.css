@@ -4,10 +4,16 @@
   width: 100%;
   height: 100%;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .tasks {
   padding: 0 2rem;
   border-radius: 10px;
+}
+
+.spinner {
+  position: absolute;
+  left: 45%;
 }
 /*# sourceMappingURL=TaskList.css.map */

@@ -6,7 +6,7 @@ header {
 	grid-area: header;
 	min-height: 50px;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: space-between;
 	background: rgb(34, 162, 242);
 	background: linear-gradient(
@@ -14,7 +14,7 @@ header {
 		rgba(34, 162, 242, 1) 14%,
 		rgba(56, 189, 242, 0.15870098039215685) 98%
 	);
-	box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.15870098039215685);
+	box-shadow: 0 1px 6px 10px rgba(56, 189, 242, 0.15870098039215685);
 
 	ul {
 		margin: 0 0 0 20px;

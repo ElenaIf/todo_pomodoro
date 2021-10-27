@@ -5,17 +5,17 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   background: #22a2f2;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(14%, #22a2f2), color-stop(98%, rgba(56, 189, 242, 0.158701)));
   background: linear-gradient(180deg, #22a2f2 14%, rgba(56, 189, 242, 0.158701) 98%);
-  -webkit-box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
-          box-shadow: 0 1px 6px 3px rgba(56, 189, 242, 0.158701);
+  -webkit-box-shadow: 0 1px 6px 10px rgba(56, 189, 242, 0.158701);
+          box-shadow: 0 1px 6px 10px rgba(56, 189, 242, 0.158701);
 }
 
 header ul {

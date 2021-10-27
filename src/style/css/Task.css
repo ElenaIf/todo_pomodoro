@@ -19,10 +19,25 @@
   padding: 0.5rem;
 }
 
-.todo-bullet {
+.todo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-text span {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.todo-text span::before {
+  content: " ";
   border: none;
-  padding: 2px;
-  margin: 1rem 0;
+  margin: 0 1rem;
   max-height: 30px;
   max-width: 30px;
   min-height: 20px;
@@ -37,12 +52,6 @@
   background-size: 170%;
   /* Resize the background image to cover the entire container */
   background-repeat: no-repeat;
-}
-
-.todo-text span {
-  display: inline-block;
-  margin: 0.5rem 1rem;
-  font-size: 1.5rem;
 }
 
 .todo-text span:hover {
@@ -168,10 +177,20 @@
 }
 
 .project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   background-color: #edc9f2;
   margin: 0 1rem;
   padding: 0.5rem 1rem;
-  min-width: 70px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   border-radius: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -184,11 +203,16 @@
 
 .project .project-text {
   color: #cd5fdb;
+  font-size: 0.8rem;
 }
 
 .project i {
   margin: 0 0.5rem;
   justify-self: flex-end;
   font-size: 13px;
+}
+
+.time-spent-text {
+  margin: 0 0 0 2rem;
 }
 /*# sourceMappingURL=Task.css.map */

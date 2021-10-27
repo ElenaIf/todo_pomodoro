@@ -112,6 +112,8 @@
 }
 
 .projects {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,9 +125,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
   padding: 1rem 2rem;
-  margin: 0 1rem 0 40px;
+  margin: 0;
 }
 
 .projects .single-projects {

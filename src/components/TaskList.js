@@ -24,10 +24,10 @@ const TaskList = ({
 }) => {
 	return (
 		<div className="tasks-area">
+			{downloadingTasks === true && (
+				<Spinner className="spinner" animation="border" variant="light" />
+			)}
 			<div className="tasks">
-				{downloadingTasks === true && (
-					<Spinner className="spinner" animation="border" variant="warning" />
-				)}
 				{todosArray
 					.filter((todo) => {
 						if (

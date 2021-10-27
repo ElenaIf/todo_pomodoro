@@ -61,7 +61,7 @@ const Task = ({
 	return (
 		<div className="single-task-area">
 			<div className="todo">
-				<div className="todo-bullet"></div>
+				{/* <div className="todo-bullet"></div> */}
 				<div className="todo-text">
 					<span
 						onClick={() => {
@@ -70,21 +70,21 @@ const Task = ({
 						style={{ textDecoration: todo.done ? "line-through" : undefined }}
 					>
 						{todo.title}{" "}
-						<i
-							className="fa fa-pencil"
-							aria-hidden="true"
-							onClick={() => {
-								setEdit(todo);
-							}}
-						></i>
-						<i
-							className="fa fa-times"
-							aria-hidden="true"
-							onClick={() => {
-								deleteTodo(todo);
-							}}
-						></i>
 					</span>
+					<i
+						className="fa fa-pencil"
+						aria-hidden="true"
+						onClick={() => {
+							setEdit(todo);
+						}}
+					></i>
+					<i
+						className="fa fa-times"
+						aria-hidden="true"
+						onClick={() => {
+							deleteTodo(todo);
+						}}
+					></i>
 				</div>
 				{/* 		<div className="hashtags">
 					{todo.hashtags.map((tag) => {
@@ -93,7 +93,7 @@ const Task = ({
 				</div> */}
 			</div>
 			<div className="total-time">
-				<div>
+				<div className="time-spent-text">
 					Total time spent: {`${watchHours}:${watchMinutes}:${watchSeconds}`}{" "}
 					<button
 						className="timer-button"
@@ -108,22 +108,20 @@ const Task = ({
 						Start Pomodoro timer (25 min)
 					</button>
 				</div>
-				<div className="project">
-					{todo.hashtag && (
-						<>
-							<span className="project-text">{todo.hashtag}</span>
-							{todo.hashtag !== "No Project" && (
-								<i
-									className="fa fa-times"
-									aria-hidden="true"
-									onClick={() => {
-										deleteProject(todo);
-									}}
-								></i>
-							)}
-						</>
-					)}
-				</div>
+				{todo.hashtag && (
+					<div className="project">
+						<span className="project-text">{todo.hashtag}</span>
+						{todo.hashtag !== "No Project" && (
+							<i
+								className="fa fa-times"
+								aria-hidden="true"
+								onClick={() => {
+									deleteProject(todo);
+								}}
+							></i>
+						)}
+					</div>
+				)}
 			</div>
 		</div>
 	);
