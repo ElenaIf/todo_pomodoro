@@ -82,12 +82,13 @@ const App = () => {
 	};
 
 	const addTodo = (todoText) => {
-		//find in the input some word with # sign and make it string instead of array.
+		//find in the input some word with # sign
 		let inputHashtag = todoText.match(/(?<=[\s>]|^)#(\w*[A-Za-z_]+\w*)\b(?!;)/gi);
 
 		let newTodoText = todoText; // to keep the original in store
 
 		if (inputHashtag) {
+			// to remove the spaces before and after the hashtags
 			inputHashtag.forEach((element) => {
 				newTodoText = newTodoText.replace(element + " ", "");
 				newTodoText = newTodoText.replace(" " + element, "");
@@ -97,15 +98,17 @@ const App = () => {
 		if (todoText !== "") {
 			let newTodo;
 			if (inputHashtag) {
+				//to save project without # sign
 				let project = inputHashtag.slice(0, 1).join().substring(1);
 				newTodo = {
+					//to save the title starting with upper letter
 					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
 					done: false,
 					timeSpent: 0,
 					color: newColor,
 					userid: currentUser.uid,
 					hashtag: project,
-					hashtags: inputHashtag.slice(1, inputHashtag.length),
+					hashtags: inputHashtag.slice(1, inputHashtag.length), // the rest of the hashtags
 				};
 				axios.post(postURL, newTodo).then(getNotes());
 			} else {
@@ -115,13 +118,11 @@ const App = () => {
 					timeSpent: 0,
 					color: newColor,
 					userid: currentUser.uid,
-					hashtag: "No project",
+					hashtag: "No Project",
 					hashtags: [],
 				};
 				axios.post(postURL, newTodo).then(getNotes());
 			}
-
-			// .then(setTodosArray([newTodo, ...todosArray]));
 		}
 
 		getNotes();

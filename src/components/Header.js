@@ -12,9 +12,9 @@ const Header = () => {
 	const [error, setError] = useState("");
 	const { currentUser, logout } = useAuth();
 	const history = useHistory();
-	let links = document.querySelectorAll("nav ul li a");
-	let navigation = document.querySelector("nav");
-	let header = document.querySelector("header");
+	// let links = document.querySelectorAll("nav ul li a");
+	// let navigation = document.querySelector("nav");
+	// let header = document.querySelector("header");
 
 	async function handleLogout() {
 		setError("");
