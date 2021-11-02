@@ -96,13 +96,13 @@ const App = () => {
 		}
 
 		if (todoText !== "") {
+			//check if user wrote any text
 			let newTodo;
 			if (inputHashtag) {
-				//to save project without # sign
-				let project = inputHashtag.slice(0, 1).join().substring(1);
+				//if user wrote any hashtags
+				let project = inputHashtag.slice(0, 1).join().substring(1); //to save project without # sign
 				newTodo = {
-					//to save the title starting with upper letter
-					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1), //to save the title starting with upper letter
 					done: false,
 					timeSpent: 0,
 					color: newColor,
@@ -110,10 +110,11 @@ const App = () => {
 					hashtag: project,
 					hashtags: inputHashtag.slice(1, inputHashtag.length), // the rest of the hashtags
 				};
-				axios.post(postURL, newTodo).then(getNotes());
+				axios.post(postURL, newTodo).then(getNotes()); //save into database
 			} else {
+				//if user wrote no hashtags in input
 				newTodo = {
-					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1),
+					title: newTodoText.charAt(0).toUpperCase() + newTodoText.slice(1), //title is still upper case
 					done: false,
 					timeSpent: 0,
 					color: newColor,
